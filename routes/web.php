@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,6 +13,32 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// viewの確認用routes
+Route::get('/bookmark', function() {
+    return view('bookmark');
+});
+
+Route::get('/create', function() {
+    return view('edit');
+});
+
+Route::get('/profile', function() {
+    return view('profile');
+});
+
+Route::get('/show', function() {
+    return view('show');
+});
+
+Route::get('/edit', function() {
+    return view('edit');
+});
+
+
+
+
+
 
 Route::get('/', function () {
     return view('welcome');
