@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/profile.css">
+  <link rel="stylesheet" href="{{ asset("css/profile.css") }}">
   <title>マイページ</title>
 </head>
 <body>
@@ -26,16 +26,16 @@
     </div>
 
 
-  <!-- @foreach($tasks->chunk(3) as $chunk) -->
+  @foreach($tasks->chunk(3) as $chunk)
     <div class="chunk">
-      <!-- @foreach($chunks as $task) -->
+      @foreach($chunks as $task)
       <div class="show-tasks">
         <div>{{ $task->title }}</div>
         <div>{{ $task->contents }}</div>
       </div>
-      <!-- @endforeach -->
+      @endforeach
     </div>
-    <!-- @endforeach -->
+    @endforeach
   </main>
   
 </body>
