@@ -20,7 +20,7 @@ Route::get('/bookmark', function() {
 });
 
 Route::get('/create', function() {
-    return view('edit');
+    return view('create');
 });
 
 Route::get('/profile', function() {
