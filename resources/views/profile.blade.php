@@ -21,21 +21,65 @@
     </div>
 
     <div class="function">
-      <p>todoリスト期限じゅんに並び替え</p>
+      <p>todoリスト期限順に並び替え</p>
       <p>ブックマーク</p>
     </div>
 
-
+    {{-- <div class="chunks">
   @foreach($tasks->chunk(3) as $chunk)
-    <div class="chunk">
-      @foreach($chunks as $task)
-      <div class="show-tasks">
-        <div>{{ $task->title }}</div>
-        <div>{{ $task->contents }}</div>
+      <div class="chunk">
+        @foreach($chunks as $task)
+        <div class="show-tasks">
+          <div>{{ $task->title }}</div>
+          <div>{{ $task->contents }}</div>
+        </div>
+        @endforeach
       </div>
       @endforeach
+    </div> --}}
+
+    <div class="chunks">
+      <div class="chunk">
+        <div class="task">
+          <div class="title">title</div>
+          <div class="content">content</div>
+        </div>
+        <div class="task">
+          <div class="title">title</div>
+          <div class="content">content</div>
+        </div>
+        <div class="task">
+          <div class="title">title</div>
+          <div class="content">content</div>
+        </div>
+        <div class="task">
+          <div class="title">title</div>
+          <div class="content">content</div>
+        </div>
+      </div>
+
+      <div class="chunk">
+        <div class="task">
+          <div class="title">title</div>
+          <div class="content">content</div>
+        </div>
+        <div class="task">
+          <div class="title">title</div>
+          <div class="content">content</div>
+        </div>
+        <div class="task">
+          <div class="title">title</div>
+          <div class="content">content</div>
+        </div>
+        <div class="task">
+          <div class="title">title</div>
+          <div class="content">content</div>
+        </div>
+      </div>
     </div>
-    @endforeach
+
+
+
   </main>
   
 </body>

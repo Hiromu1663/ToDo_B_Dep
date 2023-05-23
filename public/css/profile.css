@@ -4,7 +4,7 @@
 }
 
 .profile {
-  background-color: darkgrey;
+  /* background-color: darkgrey; */
   margin: 30px auto 0;
   width: 90vw;
   display: flex;
@@ -13,7 +13,7 @@
 }
 
 .profile-1 {
-  background-color: aqua;
+  /* background-color: aqua; */
   height: 200px;
   width: 200px;
   border: 1px solid black;
@@ -21,7 +21,7 @@
 }
 
 .profile-2 {
-  background-color: cornsilk;
+  /* background-color: cornsilk; */
   height: 200px;
   width: 60%;
   padding-left: 50px;
@@ -31,7 +31,7 @@
 }
 
 .profile-2 p {
-  background-color: coral;
+  /* background-color: coral; */
   padding-left: 30px;
   height: 30%;
   line-height: 60px;
@@ -39,7 +39,7 @@
 }
 
 .function {
-  background-color: chartreuse;
+  /* background-color: chartreuse; */
   width: 80vw;
   display: flex;
   flex-direction: row;
@@ -52,6 +52,30 @@
   margin-right: 30px;
 }
 
-.show-tasks {
-  
+.chunks {
+  /* background-color: bisque; */
+  margin: 50px auto 50px;
+  height: 600px;
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.chunk {
+  /* background-color: burlywood; */
+  height: 49%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.task {
+  /* background-color: lime; */
+  border: 1px solid black;
+  width: 24%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
