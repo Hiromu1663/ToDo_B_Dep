@@ -12,8 +12,8 @@
     <p>todoリスト期限順に並び替え</p>
   </div>
  
-  {{-- <div class="chunks">
-  @foreach($tasks->chunk(3) as $chunk)
+  <div class="chunks">
+  @foreach($tasks->chunk(4) as $chunk)
     <div class="chunk">
       @foreach($chunk as $task)
       <div class="task">
@@ -23,46 +23,46 @@
       @endforeach
     </div>
   @endforeach
-  </div> --}}
-
-  <div class="chunks">
-    <div class="chunk">
-      <div class="task">
-        <div class="title">title</div>
-        <div class="content">content</div>
-      </div>
-      <div class="task">
-        <div class="title">title</div>
-        <div class="content">content</div>
-      </div>
-      <div class="task">
-        <div class="title">title</div>
-        <div class="content">content</div>
-      </div>
-      <div class="task">
-        <div class="title">title</div>
-        <div class="content">content</div>
-      </div>
-    </div>
-
-    <div class="chunk">
-      <div class="task">
-        <div class="title">title</div>
-        <div class="content">content</div>
-      </div>
-      <div class="task">
-        <div class="title">title</div>
-        <div class="content">content</div>
-      </div>
-      <div class="task">
-        <div class="title">title</div>
-        <div class="content">content</div>
-      </div>
-      <div class="task">
-        <div class="title">title</div>
-        <div class="content">content</div>
-      </div>
-    </div>
   </div>
+
+  {{-- <div class="chunks">
+    <div class="chunk">
+      <div class="task">
+        <div class="title">title</div>
+        <div class="content">content</div>
+      </div>
+      <div class="task">
+        <div class="title">title</div>
+        <div class="content">content</div>
+      </div>
+      <div class="task">
+        <div class="title">title</div>
+        <div class="content">content</div>
+      </div>
+      <div class="task">
+        <div class="title">title</div>
+        <div class="content">content</div>
+      </div>
+    </div>
+
+    <div class="chunk">
+      <div class="task">
+        <div class="title">title</div>
+        <div class="content">content</div>
+      </div>
+      <div class="task">
+        <div class="title">title</div>
+        <div class="content">content</div>
+      </div>
+      <div class="task">
+        <div class="title">title</div>
+        <div class="content">content</div>
+      </div>
+      <div class="task">
+        <div class="title">title</div>
+        <div class="content">content</div>
+      </div>
+    </div>
+  </div> --}}
 </body>
 </html>
