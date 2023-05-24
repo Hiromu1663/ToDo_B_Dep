@@ -27,9 +27,9 @@ Route::get('/profile', function() {
     return view('profile');
 });
 
-Route::get('/show', function() {
-    return view('show');
-});
+// Route::get('/show', function() {
+//     return view('show');
+// });
 
 Route::get('/edit', function() {
     return view('edit');
@@ -55,7 +55,7 @@ Route::get('{bookmark_id}/bookmark','BookmarkController@destroy');
 
 
 
-Route::get('/tasks','TaskController@index')->name('tasks.index');
+Route::get('/index','TaskController@index')->name('tasks.index');
 
 Route::get('/tasks/create','TaskController@create')->name('tasks.create');
 
