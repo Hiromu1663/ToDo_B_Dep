@@ -28,4 +28,3 @@ class BookmarkController extends Controller
         return redirect('/index');
     
     }
-}
