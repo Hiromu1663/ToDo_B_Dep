@@ -78,3 +78,17 @@ p{
     text-align: left;
     width: 300px;
   }
+
+  .form-btn{
+    border-radius: 6px;
+    margin-top: 32px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 20px;
+    width: 280px;
+    display: block;
+    letter-spacing: 0.05em;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+  }

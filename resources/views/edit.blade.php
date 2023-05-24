@@ -11,21 +11,17 @@
         <tbody>
             <tr>
                 <th>タイトル</th>
-                <td><input type="text" size="60" value="">
-                </td>
+                <td><input type="text" size="60" value=""></td>
             </tr>
             <tr>
                 <th>日付</th>
-                <td><input type="date" size="60" value="">
-                </td>
-            </tr>
+                <td><input type="date" size="60" value=""></td>
             </tr>
             <tr>
                 <th>詳細</th>
-                <td><textarea name="content" id="" cols="30" rows="10" placeholder="お問い合わせ内容"></textarea>
-                </td>
+                <td><textarea name="content" id="" cols="30" rows="10" placeholder="お問い合わせ内容"></textarea></td>
             </tr>
-            <button type="Submit">送信</button>
         </tbody>
     </table>
+  <input type="submit" class="form-btn" value="送信する"> --}}
 </html>
