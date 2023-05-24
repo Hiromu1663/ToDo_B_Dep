@@ -2,14 +2,14 @@ table{
     border-collapse: collapse;
 }
 
-p{
+/* p{
     font-size: 16px;
     font-weight: bold;
     text-align: center;
     margin: 60px auto 40px;
-  }
+  } */
   
-  input[type="submit"],
+  /* input[type="submit"],
   input[type="text"],
   select,
   textarea,
@@ -58,7 +58,7 @@ p{
   ::-moz-placeholder{
     color: #ccc;
     opacity: 1;
-  }
+  } */
   
   .form-table{
     width: 100%;
@@ -79,7 +79,7 @@ p{
     width: 300px;
   }
 
-  .form-btn{
+  /* .form-btn{
     border-radius: 6px;
     margin-top: 32px;
     margin-left: auto;
@@ -92,4 +92,4 @@ p{
     color: black;
     font-weight: bold;
     font-size: 20px;
-  }
+  } */

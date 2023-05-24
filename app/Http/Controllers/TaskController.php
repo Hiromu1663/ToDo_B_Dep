@@ -20,13 +20,16 @@ class TaskController extends Controller
 
     public function store(Request $request)
     {
-        $validator = $request->validate([
+        // dd($request);
+
+        $request->validate([
             "title" => ["required", "string", "max:30"],
             "contents" => ["required", "string", "max:140"],
         ]);
 
         Task::create([
-            "user_id" => Auth::user()->id,
+            // "id" => $request->id,
+            "user_id" => Auth::id(),
             "title" => $request->title,
             "contents" => $request->contents,
             "image_at" => $request->image_at,
@@ -38,9 +41,12 @@ class TaskController extends Controller
 
     function edit($id)
     {
+        // dd($id);
         $task = Task::find($id);
+        
         return view("edit", compact("task"));
     }
+//ここまでとりあえず完成
 
     function update(Request $request, $id)
     {
