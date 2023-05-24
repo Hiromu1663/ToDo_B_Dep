@@ -11,8 +11,8 @@ class UserController extends Controller
         {
             $user = User::find($id);
             
-            return vieW('profile', ['user'=>$user]);
-            
+            return view('profile', ['user'=>$user]);
+
         }
     }
     
