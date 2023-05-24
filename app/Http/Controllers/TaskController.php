@@ -15,7 +15,7 @@ class TaskController extends Controller
     public function index()
     {
         $tasks = Task::latest()->paginate(8);
-        return view("show", compact("tasks"));
+        return view("index", compact("tasks"));
     }
 
     public function store(Request $request)
