@@ -24,6 +24,6 @@ class CommentController extends Controller
     $comment->post_id = $request->post_id;
     $comment->save();
 
-    return redirect('views.show', compact('task'));
+    return redirect()->route('tasks.show', $task->id);
   }
 }
