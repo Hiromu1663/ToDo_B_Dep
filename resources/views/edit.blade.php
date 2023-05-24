@@ -7,6 +7,13 @@
     <link rel="stylesheet" href="{{ asset("css/edit.css") }}">
     <title>編集</title>
 </head>
+<header>
+    <div>
+        <ul>
+            <li><a href="#">編集する</a></li>
+        </ul>
+    </div>
+</header>
     <table class="form-table">
         <tbody>
             <tr>
@@ -23,5 +30,5 @@
             </tr>
         </tbody>
     </table>
-  <input type="submit" class="form-btn" value="送信する"> --}}
+  <input type="submit" class="form-btn" value="送信する"> 
 </html>
