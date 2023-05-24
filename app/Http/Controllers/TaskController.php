@@ -12,26 +12,44 @@ use App\Models\Task;
 class TaskController extends Controller
 {
     //
-    public function showTasksPage()
+    public function index()
     {
         $tasks = Task::latest()->paginate(8);
-        return view("show", ["tasks" => $tasks]);
+        return view("show", compact("tasks"));
     }
 
-    public function createTask(Request $request)
+    public function store(Request $request)
     {
         $validator = $request->validate([
             "title" => ["required", "string", "max:30"],
             "contents" => ["required", "string", "max:140"],
         ]);
+
         Task::create([
             "user_id" => Auth::user()->id,
             "title" => $request->title,
             "contents" => $request->contents,
             "image_at" => $request->image_at,
+            "date" => $request->date,
         ]);
 
-        return redirect()->route("show");
+        return redirect()->route("tasks.index");
+    }
+
+    function edit($id)
+    {
+        $task = Task::find($id);
+        return view("edit", compact("task"));
+    }
+
+    function update(Request $request, $id)
+    {
+        $task = Task::find($id);
+        $task -> title = $request -> title;
+        $task -> contents = $request -> contents;
+        $task -> image_at = $request -> image_at;
+        $task -> save();
+        return view("show", compact("task"));
     }
 
     public function destroy($id)

@@ -12,24 +12,25 @@
   <main>
     <div class="add-task">
       <h1 class="task-ttl">タスクの登録</h1>
-      <form action="">
+      <form action="{{ route('tasks.store') }}" method="POST">
+        @csrf
         <table class="task-table">
           <tr>
             <th class="task-item">タイトル</th>
             <td class="task-body">
-              <input type="text" class="form-text" />
+              <input type="text" class="form-text" name="title">
             </td>
           </tr>
           <tr>
             <th class="task-item">日付</th>
             <td class="task-body">
-              <input type="date" class="form-text" min="2023-05-22" max="2025-12-31"/>
+              <input type="date" class="form-text" min="2023-05-22" max="2025-12-31" name="date">
             </td>
           </tr>
           <tr>
             <th class="task-item">詳細</th>
             <td class="task-body">
-              <textarea class="form-textarea"></textarea>
+              <textarea class="form-textarea" name="contents"></textarea>
             </td>
           </tr>
         </table>
