@@ -68,3 +68,10 @@ Route::get('/tasks/{id}','TaskController@show')->name('tasks.show');
 Route::put('/task/{id}','TaskController@update')->name('tasks.update');
 
 Route::delete('/tasks/{id}','TaskController@destroy')->name('tasks.destroy');
+
+
+
+//コメント機能
+Route::get('/comments/create/{task_id}','CommentController@create')->name('comments.create');
+
+Route::post('/comments','CommentController@store')->name('comments.store');
