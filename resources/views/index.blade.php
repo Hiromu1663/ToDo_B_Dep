@@ -27,6 +27,11 @@
         <div>
           <a href="{{ route('tasks.edit',$task->id) }}">編集</a>
         </div>
+        @if($task->bookmarkedBy(Auth::user())->exists())
+        <a href="/bookmarks/{{ $task->bookmarkedBy(Auth::user())->firstOrfail()->id }}">ブックマークを外す</a>
+        @else
+        <a href="/tasks/{{ $task->id }}/bookmarks">ブックマーク</a> 
+        @endif
       </div>
       @endforeach
     </div>
