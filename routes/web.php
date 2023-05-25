@@ -49,9 +49,9 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // ブックマーク機能
-Route::get('bookmark/{task_id}','BookmarkController@store');
+Route::get('tasks/{task_id}/bookmarks','BookmarkController@store');
 
-Route::get('{bookmark_id}/bookmark','BookmarkController@destroy');
+Route::get('bookmarks/{bookmark_id}/','BookmarkController@destroy');
 
 
 Route::resource('tasks','TaskController');
