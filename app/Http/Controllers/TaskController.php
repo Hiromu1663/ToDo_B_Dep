@@ -55,7 +55,7 @@ class TaskController extends Controller
         $task -> contents = $request -> contents;
         $task -> image_at = $request -> image_at;
         $task -> save();
-        return view("show", compact("task"));
+        return view("index", compact("task"));
     }
 
     public function destroy($id)
@@ -63,6 +63,6 @@ class TaskController extends Controller
         $task = Task::find($id);
         $task->delete();
 
-        return redirect()->route("show");
+        return redirect()->route("index");
     }
 }
