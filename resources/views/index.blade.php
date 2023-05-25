@@ -27,6 +27,16 @@
         <div>
           <a href="{{ route('tasks.edit',$task->id) }}">編集</a>
         </div>
+        <div> 
+          {{-- 削除機能追加 --}}
+            @if($task->user_id == Auth::user()->id)
+              <form action="{{ route('tasks.destroy', [$task->id]) }}" method="POST">
+                @csrf
+                @method('delete')
+              <input type="submit" value="削除">
+              </form>
+            @endif
+        </div>
       </div>
       @endforeach
     </div>

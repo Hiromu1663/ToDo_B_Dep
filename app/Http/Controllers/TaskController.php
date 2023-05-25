@@ -48,7 +48,6 @@ class TaskController extends Controller
     {
         // dd($id);
         $task = Task::find($id);
-        
         return view("edit", compact("task"));
     }
 //ここまでとりあえず完成
@@ -72,6 +71,8 @@ class TaskController extends Controller
         $task = Task::find($id);
         $task->delete();
 
-        return redirect()->route("index");
+        return redirect()->route("tasks.index");
     }
+
+    
 }

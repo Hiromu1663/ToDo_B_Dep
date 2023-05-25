@@ -38,6 +38,7 @@
                         <textarea name="contents" id="" cols="30" rows="10" placeholder="">{{ $task->contents }}</textarea>
                     </td>
                 </tr>
+                
             </tbody>
         </table>
         <button type="submit" class="form-btn">編集する</button>
