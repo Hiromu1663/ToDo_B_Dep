@@ -27,7 +27,7 @@ class LoginController extends Controller
      * @var string
      */
     // ログイン後'/index'へ遷移
-    protected $redirectTo = '/index';
+    protected $redirectTo = '/tasks';
     // protected $redirectTo = RouteServiceProvider::HOME;
 
     /**

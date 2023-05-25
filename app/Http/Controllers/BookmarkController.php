@@ -16,7 +16,7 @@ class BookmarkController extends Controller
     $bookmark->user_id = Auth::user()->id;
     $bookmark->save();
 
-    return redirect('/index');
+    return redirect('/tasks');
     }
 
 
@@ -25,7 +25,7 @@ class BookmarkController extends Controller
         $bookmark = Bookmark::find($id);
         $bookmark->delete();
 
-        return redirect('/index');
+        return redirect('/tasks');
     
     }
 }
