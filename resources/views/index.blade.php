@@ -19,6 +19,9 @@
       <div class="task">
         <div class="title">{{ $task->title }}</div>
         <div class="content">{{ $task->contents }}</div>
+        <div>
+          <a href="{{ route('tasks.edit',$task->id) }}">編集</a>
+        </div>
       </div>
       @endforeach
     </div>

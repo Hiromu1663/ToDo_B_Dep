@@ -15,25 +15,25 @@ use Illuminate\Support\Facades\Auth;
 */
 
 // viewの確認用routes
-Route::get('/bookmark', function() {
-    return view('bookmark');
-});
+// Route::get('/bookmark', function() {
+//     return view('bookmark');
+// });
 
-Route::get('/create', function() {
-    return view('create');
-});
+// Route::get('/create', function() {
+//     return view('create');
+// });
 
-Route::get('/profile', function() {
-    return view('profile');
-});
+// Route::get('/profile', function() {
+//     return view('profile');
+// });
 
 // Route::get('/show', function() {
 //     return view('show');
 // });
 
-Route::get('/edit', function() {
-    return view('edit');
-});
+// Route::get('/edit', function() {
+//     return view('edit');
+// });
 
 
 
@@ -54,18 +54,19 @@ Route::get('bookmark/{task_id}','BookmarkController@store');
 Route::get('{bookmark_id}/bookmark','BookmarkController@destroy');
 
 
+Route::resource('tasks','TaskController');
 
 Route::get('/index','TaskController@index')->name('tasks.index');
 
-Route::get('/tasks/create','TaskController@create')->name('tasks.create');
+// Route::get('/tasks/create','TaskController@create')->name('tasks.create');
 
-Route::post('/tasks','TaskController@store')->name('tasks.store');
+// Route::post('/tasks','TaskController@store')->name('tasks.store');
 
-Route::get('/tasks/{id}/edit','TaskController@edit')->name('tasks.edit');
+// Route::get('/edit','TaskController@edit')->name('tasks.edit');
 
-Route::get('/tasks/{id}','TaskController@show')->name('tasks.show');
+// Route::get('/tasks/{id}','TaskController@show')->name('tasks.show');
 
-Route::put('/task/{id}','TaskController@update')->name('tasks.update');
+// Route::put('/task/{id}','TaskController@update')->name('tasks.update');
 
 Route::delete('/tasks/{id}','TaskController@destroy')->name('tasks.destroy');
 

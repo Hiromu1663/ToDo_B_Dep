@@ -8,27 +8,37 @@
     <title>編集</title>
 </head>
 <header>
-    <div>
+    {{-- <div>
         <ul>
             <li><a href="#">編集する</a></li>
         </ul>
-    </div>
+    </div> --}}
 </header>
-    <table class="form-table">
-        <tbody>
-            <tr>
-                <th>タイトル</th>
-                <td><input type="text" size="60" value=""></td>
-            </tr>
-            <tr>
-                <th>日付</th>
-                <td><input type="date" size="60" value=""></td>
-            </tr>
-            <tr>
-                <th>詳細</th>
-                <td><textarea name="content" id="" cols="30" rows="10" placeholder="お問い合わせ内容"></textarea></td>
-            </tr>
-        </tbody>
-    </table>
-  <input type="submit" class="form-btn" value="送信する"> 
+    <h1>タスクの編集</h1>
+    <form action="" method="get">
+        @csrf
+        <table class="form-table">
+            <tbody>
+                <tr>
+                    <th>タイトル</th>
+                    <td>
+                        <input type="text" size="60" value="{{ $task->title }}">
+                    </td>
+                </tr>
+                <tr>
+                    <th>日付</th>
+                    <td>
+                        <input type="date" size="60" value="{{ $task->date }}">
+                    </td>
+                </tr>
+                <tr>
+                    <th>詳細</th>
+                    <td>
+                        <textarea name="content" id="" cols="30" rows="10" placeholder="">{{ $task->contents }}</textarea>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="submit" class="form-btn">編集する</button>
+    </form>
 </html>
