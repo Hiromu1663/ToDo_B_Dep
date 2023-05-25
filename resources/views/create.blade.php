@@ -12,7 +12,7 @@
   <main>
     <div class="add-task">
       <h1 class="task-ttl">タスクの登録</h1>
-      <form action="{{ route('tasks.store') }}" method="POST">
+      <form action="{{ route('tasks.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <table class="task-table">
           <tr>
@@ -34,11 +34,10 @@
             </td>
           </tr>
         </table>
+        <input type="submit" value="アップロード">
         <button type="submit" href="" class="submit-btn">{{ __('登録') }}</button>
       </form>
     </div>
-
-
 
   </main>
 </body>
