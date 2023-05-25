@@ -15,26 +15,27 @@
     </div> --}}
 </header>
     <h1>タスクの編集</h1>
-    <form action="" method="get">
+    <form action="{{ route('tasks.update',$task->id) }}" method="post">
         @csrf
+        @method('put')
         <table class="form-table">
             <tbody>
                 <tr>
                     <th>タイトル</th>
                     <td>
-                        <input type="text" size="60" value="{{ $task->title }}">
+                        <input type="text" size="60" value="{{ $task->title }}" name="title">
                     </td>
                 </tr>
                 <tr>
                     <th>日付</th>
                     <td>
-                        <input type="date" size="60" value="{{ $task->date }}">
+                        <input type="date" size="60" value="{{ $task->date }}" name="date">
                     </td>
                 </tr>
                 <tr>
                     <th>詳細</th>
                     <td>
-                        <textarea name="content" id="" cols="30" rows="10" placeholder="">{{ $task->contents }}</textarea>
+                        <textarea name="contents" id="" cols="30" rows="10" placeholder="">{{ $task->contents }}</textarea>
                     </td>
                 </tr>
             </tbody>

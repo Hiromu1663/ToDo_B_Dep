@@ -13,6 +13,9 @@
   <div class="function">
     <p>todoリスト期限順に並び替え</p>
   </div>
+  <div>
+    <a href="{{ route('tasks.create') }}">タスクの追加</a>
+  </div>
  
   <div class="chunks">
   @foreach($tasks->chunk(4) as $chunk)

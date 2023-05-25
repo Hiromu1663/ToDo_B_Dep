@@ -39,6 +39,11 @@ class TaskController extends Controller
         return redirect()->route("tasks.index");
     }
 
+    public function create()
+    {
+        return view('create');
+    }
+
     function edit($id)
     {
         // dd($id);
@@ -50,12 +55,16 @@ class TaskController extends Controller
 
     function update(Request $request, $id)
     {
+        // dd($id);
+        // dd($request);
         $task = Task::find($id);
+        // dd($task);
         $task -> title = $request -> title;
         $task -> contents = $request -> contents;
         $task -> image_at = $request -> image_at;
         $task -> save();
-        return view("index", compact("task"));
+        // return view("index", compact("tasks"));
+        return redirect()->route("tasks.index");
     }
 
     public function destroy($id)
