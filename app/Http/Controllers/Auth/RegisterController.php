@@ -30,7 +30,7 @@ class RegisterController extends Controller
      * @var string
      */
     // ユーザー新規登録後に'/index'へ遷移
-    protected $redirectTo = '/index';
+    protected $redirectTo = '/tasks';
     // protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
