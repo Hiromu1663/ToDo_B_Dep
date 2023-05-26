@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .function {
+    /* background-color: chartreuse; */
+    width: 90%;
+    margin: 50px auto 0;
+  }
+  
+  .function p {
+    width: 240px;
+    text-align: center;
+    border: 1px solid black;
+    padding: 5px;
+  }
+  
+  .function p::before {
+    content: "";
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    transform: rotate(45deg);
+    vertical-align: 2px;
+    margin-right: 7px;
+  }
+  
+  .chunks {
+    /* background-color: bisque; */
+    margin: 50px auto 50px;
+    height: auto;
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .chunk {
+    /* background-color: burlywood; */
+    height: 55vh;
+    /* height: 295px; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .task {
+    /* background-color: lime; */
+    border: 1px solid black;
+    width: 24%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }

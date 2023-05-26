@@ -9,21 +9,23 @@ use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
-  public function createComment($task_id)
+  public function create($task_id)
   {
     $task = Task::find($task_id);
-    return view('comments.create', compact('task'));
+    return view('comment.create', compact('task'));
   }
 
   public function store(Request $request)
   {
-    $task = Task::find($request->post_id);
-    $comment = new Comment;
-    $comment->body  = $request->body;
-    $comment->user_id = Auth::id();
-    $comment->post_id = $request->post_id;
-    $comment->save();
+    // dd($request);
+    $task = Task::find($request->task_id);
+    // dd($task);
+    $comments = new Comment;
+    $comments->body  = $request->comment;
+    $comments->user_id = Auth::id();
+    $comments->task_id = $request->task_id;
+    $comments->save();
 
-    return redirect()->route('tasks.show', $task->id);
+    return redirect()->route("tasks.index");
   }
 }
