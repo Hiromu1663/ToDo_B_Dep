@@ -1,3 +1,6 @@
+@extends('layouts.app_original')
+@section('header')
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -8,7 +11,6 @@
   <title>マイページ</title>
 </head>
 <body>
-  <header></header>
   <main>
     <div class="profile">
       <div class="profile-1">
@@ -77,10 +79,6 @@
         </div>
       </div>
     </div>
-
-
-
   </main>
-  
 </body>
-</html>
+@endsection
