@@ -12,11 +12,11 @@
   <main>
     <div class="profile">
       <div class="profile-1">
-        <img src="" alt="">
+        <a href="{{ route('showProfile', Auth::user()->id )}}"><img src="{{ asset('storage/images/'.$user->avatar) }}" alt=""></a>
       </div>
       <div class="profile-2">
-        <p>name</p>
-        <p >ID</p>
+        <p>{{ Auth::user()->name }}</p>
+        <p >{{  Auth::user()->email  }}</p>
       </div>
     </div>
 

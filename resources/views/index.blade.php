@@ -16,7 +16,7 @@
   <div>
     <a href="{{ route('tasks.create') }}">タスクの追加</a>
   </div>
- 
+
   <div class="chunks">
   @foreach($tasks->chunk(4) as $chunk)
     <div class="chunk">

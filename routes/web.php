@@ -23,9 +23,9 @@ use Illuminate\Support\Facades\Auth;
 //     return view('create');
 // });
 
-// Route::get('/profile', function() {
-//     return view('profile');
-// });
+Route::get('/profile', function() {
+    return view('profile');
+});
 
 // Route::get('/show', function() {
 //     return view('show');
@@ -76,3 +76,7 @@ Route::resource('tasks','TaskController');
 Route::get('/comments/create/{task_id}','CommentController@create')->name('comments.create');
 
 Route::post('/comments','CommentController@store')->name('comments.store');
+
+
+//アバター表示
+Route::get('/user/showProfile/{id}','UserController@showProfile')->name('showProfile');
