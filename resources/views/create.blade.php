@@ -33,8 +33,13 @@
               <textarea class="form-textarea" name="contents"></textarea>
             </td>
           </tr>
+          <tr>
+            <th class="task-item">資料</th>
+            <td class="task-body">
+              <input type="file" value="アップロード">
+            </td>
+          </tr>
         </table>
-        <input type="submit" value="アップロード">
         <button type="submit" href="" class="submit-btn">{{ __('登録') }}</button>
       </form>
     </div>
