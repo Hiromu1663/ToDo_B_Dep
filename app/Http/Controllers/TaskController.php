@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Task;
 use App\Models\Bookmark;
-
+use App\Models\Comment;
 
 
 class TaskController extends Controller
@@ -70,6 +70,7 @@ class TaskController extends Controller
     {
 
         $bookmarks = Bookmark::where("task_id",$id)->delete();
+        $comments = Comment::where("task_id",$id)->delete();
         $task = Task::find($id);
         $task->delete();
         return redirect()->route("tasks.index");
