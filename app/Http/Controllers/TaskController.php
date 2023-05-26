@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Task;
-
+use App\Models\Bookmark;
 
 
 
@@ -68,9 +68,10 @@ class TaskController extends Controller
 
     public function destroy($id)
     {
+
+        $bookmarks = Bookmark::where("task_id",$id)->delete();
         $task = Task::find($id);
         $task->delete();
-
         return redirect()->route("tasks.index");
     }
 
