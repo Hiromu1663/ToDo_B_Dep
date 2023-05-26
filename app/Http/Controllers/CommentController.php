@@ -28,4 +28,12 @@ class CommentController extends Controller
 
     return redirect()->route("tasks.index");
   }
+
+  public function destroy($id)
+  {
+    // $bookmarks = Bookmark::where("task_id",$id)->delete();
+    $comment = Comment::find($id);
+    $comment->delete();
+    return redirect()->route("tasks.index");
+  }
 }
