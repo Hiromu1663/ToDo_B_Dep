@@ -25,7 +25,14 @@
         <div class="title">{{ $task->title }}</div>
         <div class="content">{{ $task->contents }}</div>
         <div>
-          <a href="{{ route('tasks.edit',$task->id) }}">編集</a>
+          {{-- 編集機能追加 --}}
+          @if($task->user_id == Auth::user()->id)
+           <form action="{{ route('tasks.edit', [$task->id]) }}" method="POST">
+            @csrf
+            @method('get')
+            <input type="submit" value="編集">
+           </form>
+          @endif
         </div>
         <div> 
           {{-- 削除機能追加 --}}
