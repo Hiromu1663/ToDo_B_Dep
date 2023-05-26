@@ -63,6 +63,13 @@
                   <div class="card-body">
                       {{-- <h5 class="card-title">投稿日時：{{ $comment->created_at }}</h5> --}}
                       <p class="card-text">内容：{{ $comment->body }}</p>
+                      @if($comment->user_id == Auth::user()->id)
+                      <form action="{{ route('comments.destroy', [$comment->id]) }}" method="POST">
+                        @csrf
+                        @method('delete')
+                      <input type="submit" value="削除">
+                      </form>
+                    @endif
                   </div>
               </div>            
             @endforeach
