@@ -79,8 +79,8 @@
       @endforeach
     </div>
   @endforeach
-  {{ $tasks->links() }}
   </div>
+  {{ $tasks->links() }}
 
   {{-- <div class="chunks">
     <div class="chunk">
