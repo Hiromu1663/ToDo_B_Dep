@@ -53,6 +53,8 @@ Route::get('tasks/{task_id}/bookmarks','BookmarkController@store');
 
 Route::get('bookmarks/{bookmark_id}/','BookmarkController@destroy');
 
+Route::get('/indexBookmark/{user_id}','BookmarkController@indexBookmark')->name('indexBookmark');
+
 
 Route::resource('tasks','TaskController');
 
