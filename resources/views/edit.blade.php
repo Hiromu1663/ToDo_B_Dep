@@ -1,3 +1,6 @@
+@extends('layouts.app_original')
+@section('header')
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,4 +46,4 @@
         </table>
         <button type="submit" class="form-btn">編集する</button>
     </form>
-</html>
+@endsection

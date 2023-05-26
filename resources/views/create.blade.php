@@ -1,3 +1,6 @@
+@extends('layouts.app_original')
+@section('header')
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -8,7 +11,6 @@
   <link rel="stylesheet" href="{{ asset("css/create.css") }}">
 </head>
 <body>
-  <header></header>
   <main>
     <div class="add-task">
       <h1 class="task-ttl">タスクの登録</h1>
@@ -43,8 +45,6 @@
         <button type="submit" href="" class="submit-btn">{{ __('登録') }}</button>
       </form>
     </div>
-
   </main>
 </body>
-
-</html>
+@endsection

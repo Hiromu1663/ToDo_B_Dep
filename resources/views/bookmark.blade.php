@@ -1,3 +1,6 @@
+@extends('layouts.app_original')
+@section('header')
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -35,4 +38,4 @@
   {{-- {{ $tasks->links() }} --}}
   </div>
 </body>
-</html>
+@endsection
