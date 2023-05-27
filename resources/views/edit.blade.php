@@ -1,6 +1,3 @@
-@extends('layouts.app_original')
-@section('header')
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,13 +7,15 @@
     <link rel="stylesheet" href="{{ asset("css/edit.css") }}">
     <title>編集</title>
 </head>
-<header>
-    {{-- <div>
+@extends('layouts.app_original')
+@section('content')
+{{-- <header>
+    <div>
         <ul>
             <li><a href="#">編集する</a></li>
         </ul>
-    </div> --}}
-</header>
+    </div>
+</header> --}}
     <h1>タスクの編集</h1>
     <form action="{{ route('tasks.update',$task->id) }}" method="post">
         @csrf

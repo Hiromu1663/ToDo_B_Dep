@@ -6,10 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="{{ asset("css/app.css") }}">
   <link rel="stylesheet" href="{{ asset("css/show.css") }}">
-  <script src="{{ asset("js/app.js") }}"></script>
+  {{-- <script src="{{ asset("js/app.js") }}"></script> --}}
   <title>タスク一覧</title>
 </head>
-<body>
+@extends('layouts.app_original')
+@section('content')
   <div class="function">
     <p>todoリスト期限順に並び替え</p>
   </div>
@@ -121,5 +122,4 @@
       </div>
     </div>
   </div> --}}
-</body>
-</html>
+  @endsection

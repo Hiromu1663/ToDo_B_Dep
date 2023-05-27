@@ -1,6 +1,3 @@
-@extends('layouts.app_original')
-@section('header')
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -9,10 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{{ asset("css/app.css") }}">
   <link rel="stylesheet" href="{{ asset("css/bookmark.css") }}">
-  <script src="{{ asset("js/app.js") }}"></script>
+  {{-- <script src="{{ asset("js/app.js") }}"></script> --}}
   <title>ブックマーク</title>
 </head>
-<body>
+@extends('layouts.app_original')
+@section('content')
 <div class="function">
     <p><a href="{{ route('tasks.index') }}">todo作成順に並び替え</a></p>
   </div>
@@ -37,5 +35,4 @@
   @endforeach
   {{-- {{ $tasks->links() }} --}}
   </div>
-</body>
 @endsection

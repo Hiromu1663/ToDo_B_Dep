@@ -44,7 +44,7 @@
     </div>
     </div>
   </header>
-  @yield('header')
+  @yield('content')
   <footer>
     Copyright &copy; Bteam Inc.
   </footer>
