@@ -75,11 +75,13 @@ Route::resource('tasks','TaskController');
 
 
 //コメント機能
-Route::resource('comments','CommentController');
 
-// Route::get('/comments/create/{task_id}','CommentController@create')->name('comments.create');
 
-// Route::post('/comments','CommentController@store')->name('comments.store');
+Route::get('/comments/create/{task_id}','CommentController@create')->name('comments.create');
+
+Route::post('/comments','CommentController@store')->name('comments.store');
+
+Route::delete('/comments/{id}','CommentController@destroy')->name('comments.destroy');
 
 
 
