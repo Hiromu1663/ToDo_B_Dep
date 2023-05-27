@@ -66,13 +66,17 @@ class TaskController extends Controller
         return redirect()->route("tasks.index");
     }
 
+
     public function destroy($id)
     {
-
-        $bookmarks = Bookmark::where("task_id",$id)->delete();
-        $comments = Comment::where("task_id",$id)->delete();
-        $task = Task::find($id);
-        $task->delete();
+        // 外部キー制約により、タスク削除前にブックマークとコメントを先に削除する必要あり。
+        // ブックマーク削除
+        Bookmark::where("task_id",$id)->delete();
+        // コメント削除
+        Comment::where("task_id",$id)->delete();
+        
+        // タスク削除
+        Task::find($id)->delete();
         return redirect()->route("tasks.index");
     }
 
