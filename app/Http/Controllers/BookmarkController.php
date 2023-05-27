@@ -10,10 +10,11 @@ use Illuminate\Support\Facades\Auth;
 
 class BookmarkController extends Controller
 {
-    public function store(Request $request)
+    // ブックマークする
+    public function store($task_id)
     {
     $bookmark = new Bookmark();
-    $bookmark->task_id = $request->task_id;
+    $bookmark->task_id = $task_id;
     $bookmark->user_id = Auth::user()->id;
     $bookmark->save();
 
@@ -21,9 +22,10 @@ class BookmarkController extends Controller
     }
 
 
-    public function destroy($id)
+    // ブックマーク削除
+    public function destroy($bookmark_id)
     {
-        $bookmark = Bookmark::find($id);
+        $bookmark = Bookmark::find($bookmark_id);
         $bookmark->delete();
 
         return redirect('/tasks');
