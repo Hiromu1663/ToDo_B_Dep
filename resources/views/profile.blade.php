@@ -1,6 +1,3 @@
-@extends('layouts.app_original')
-@section('header')
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -10,7 +7,8 @@
   <link rel="stylesheet" href="{{ asset("css/profile.css") }}">
   <title>マイページ</title>
 </head>
-<body>
+@extends('layouts.app_original')
+@section('content')
   <main>
     <div class="profile">
       <div class="profile-1">
@@ -80,5 +78,4 @@
       </div>
     </div>
   </main>
-</body>
-@endsection
+  @endsection

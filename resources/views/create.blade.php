@@ -1,6 +1,3 @@
-@extends('layouts.app_original')
-@section('header')
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -10,7 +7,8 @@
   <title>タスクの登録</title>
   <link rel="stylesheet" href="{{ asset("css/create.css") }}">
 </head>
-<body>
+@extends('layouts.app_original')
+@section('content')
   <main>
     <div class="add-task">
       <h1 class="task-ttl">タスクの登録</h1>
@@ -46,5 +44,4 @@
       </form>
     </div>
   </main>
-</body>
 @endsection
