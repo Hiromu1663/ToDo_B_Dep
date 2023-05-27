@@ -85,3 +85,7 @@ Route::resource('comments','CommentController');
 
 //アバター表示
 Route::get('/user/showProfile/{id}','UserController@showProfile')->name('showProfile');
+
+
+//ドロップダウンメニュー「トップページ」からwelcomeページへ遷移
+Route::get('/welcome/{user_id}','UserController@welcome')->name('welcome');
