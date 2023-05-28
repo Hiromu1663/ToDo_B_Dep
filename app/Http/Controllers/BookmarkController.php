@@ -34,7 +34,7 @@ class BookmarkController extends Controller
 
 public function indexBookmark($id)
     {
-        $bookmarks = Bookmark::where('user_id', $id)->get();
+        $bookmarks = Bookmark::where('user_id', $id)->latest('created_at')->paginate(8);
         $tasks = collect();
         foreach($bookmarks as $bookmark) {
             $task = Task::find($bookmark->task_id);
