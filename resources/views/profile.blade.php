@@ -25,57 +25,57 @@
       <p>ブックマーク</p>
     </div>
 
-    {{-- <div class="chunks">
-  @foreach($tasks->chunk(3) as $chunk)
+    <div class="chunks">
+  @foreach($tasks->chunk(3) as $chunks)
       <div class="chunk">
         @foreach($chunks as $task)
-        <div class="show-tasks">
-          <div>{{ $task->title }}</div>
-          <div>{{ $task->contents }}</div>
+        <div class="task">
+          <div class="title">{{ $task->title }}</div>
+          <div class="content">{{ $task->contents }}</div>
         </div>
         @endforeach
       </div>
       @endforeach
-    </div> --}}
-
-    <div class="chunks">
-      <div class="chunk">
-        <div class="task">
-          <div class="title">title</div>
-          <div class="content">content</div>
-        </div>
-        <div class="task">
-          <div class="title">title</div>
-          <div class="content">content</div>
-        </div>
-        <div class="task">
-          <div class="title">title</div>
-          <div class="content">content</div>
-        </div>
-        <div class="task">
-          <div class="title">title</div>
-          <div class="content">content</div>
-        </div>
-      </div>
-
-      <div class="chunk">
-        <div class="task">
-          <div class="title">title</div>
-          <div class="content">content</div>
-        </div>
-        <div class="task">
-          <div class="title">title</div>
-          <div class="content">content</div>
-        </div>
-        <div class="task">
-          <div class="title">title</div>
-          <div class="content">content</div>
-        </div>
-        <div class="task">
-          <div class="title">title</div>
-          <div class="content">content</div>
-        </div>
-      </div>
     </div>
+
+    {{-- <div class="chunks">
+      <div class="chunk">
+        <div class="task">
+          <div class="title">title</div>
+          <div class="content">content</div>
+        </div>
+        <div class="task">
+          <div class="title">title</div>
+          <div class="content">content</div>
+        </div>
+        <div class="task">
+          <div class="title">title</div>
+          <div class="content">content</div>
+        </div>
+        <div class="task">
+          <div class="title">title</div>
+          <div class="content">content</div>
+        </div>
+      </div>
+
+      <div class="chunk">
+        <div class="task">
+          <div class="title">title</div>
+          <div class="content">content</div>
+        </div>
+        <div class="task">
+          <div class="title">title</div>
+          <div class="content">content</div>
+        </div>
+        <div class="task">
+          <div class="title">title</div>
+          <div class="content">content</div>
+        </div>
+        <div class="task">
+          <div class="title">title</div>
+          <div class="content">content</div>
+        </div>
+      </div>
+    </div> --}}
   </main>
   @endsection
