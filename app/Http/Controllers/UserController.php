@@ -14,7 +14,7 @@ class UserController extends Controller
   {
       $user = User::find($id);
 
-      $tasks = Task::where('user_id', $id)->get();
+      $tasks = Task::where('user_id', $id)->latest()->paginate(8);
       
       return view('profile', ['user'=>$user],['tasks'=>$tasks]);
       

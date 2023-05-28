@@ -26,7 +26,7 @@
     </div>
 
     <div class="chunks">
-  @foreach($tasks->chunk(3) as $chunks)
+  @foreach($tasks->chunk(4) as $chunks)
       <div class="chunk">
         @foreach($chunks as $task)
         <div class="task">

@@ -40,7 +40,7 @@
 
 .chunk {
   /* background-color: burlywood; */
-  height: 49%;
+  height: 45%;
   display: flex;
   flex-direction: row;
   /* justify-content: space-between; */
@@ -49,7 +49,7 @@
 .task {
   /* background-color: lime; */
   border: 1px solid black;
-  width: 24%;
+  width: 22%;
   display: flex;
   flex-direction: column;
   justify-content: center;
