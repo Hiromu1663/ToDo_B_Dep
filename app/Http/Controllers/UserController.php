@@ -4,15 +4,19 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Task;
 
 class UserController extends Controller
 {
   public function showProfile($id)
   {
       $user = User::find($id);
+
+      $tasks = Task::where('user_id', $id)->get();
       
-      return view('profile', ['user'=>$user]);
+      return view('profile', ['user'=>$user],['tasks'=>$tasks]);
       
   }
 

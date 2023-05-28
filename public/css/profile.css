@@ -74,7 +74,7 @@
   height: 49%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 .task {
@@ -85,4 +85,5 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 0 15px;
 }
