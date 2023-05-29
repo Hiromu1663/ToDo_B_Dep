@@ -13,6 +13,7 @@ class Task extends Model
         'image_at',
         'user_id',
         'date',
+        'priority',
     ];
 
     use HasFactory;
