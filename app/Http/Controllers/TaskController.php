@@ -107,4 +107,18 @@ class TaskController extends Controller
     }
 
     
+    // 期限順並び替え
+    public function deadline()
+    {
+        $tasks = Task::orderBy('date')->paginate(8);
+        return view("index", compact("tasks"));
+    }
+
+
+    // route("deadline")実行してもdeadline()が実行されずに、なぜかshow()が実行されてしまう。
+    public function show()
+    {
+        $tasks = Task::orderBy('date')->paginate(8);
+        return view("index", compact("tasks"));
+    }
 }
