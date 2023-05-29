@@ -45,12 +45,17 @@
                                 @enderror
             </td>
           </tr>
+<<<<<<< Updated upstream
           <tr>
           <th class="task-item">優先度</th>
           <td class="task-body">
             <input type="radio" name="priority" value="優先度 低">低
             <input type="radio" name="priority" value="優先度 中">中
             <input type="radio" name="priority" value="優先度 高">高
+=======
+          <th class="task-item">優先度</th>
+          <td class="task-body">
+>>>>>>> Stashed changes
           </td>
         </tr>
         </table>
