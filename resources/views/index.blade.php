@@ -11,13 +11,25 @@
 </head>
 @extends('layouts.app_original')
 @section('content')
-  <div class="function">
+  {{-- <div class="function">
     <a href="{{ route('deadline') }}"><p>todoリスト期限順に並び替え</p></a>
+  </div> --}}
+  <!-- Todoリスト並び替え -->
+  <div class="f-row">
+    <div class="function">
+      <label for="menu">並び替え</label>
+      <input type="checkbox" id="menu">
+      <ul class="dropdown">
+        <a href="{{ route('tasks.index') }}"><li>登録順</li></a>
+        <a href="{{ route('deadline') }}"><li>期限順</li></a>
+        <li>重要度順</li>
+      </ul>
+    </div>
+    <div>
+      <a href="{{ route('tasks.create') }}">＋</a>
+    </div>
   </div>
-  <div>
-    <a href="{{ route('tasks.create') }}">タスクの追加</a>
-  </div>
-
+  
   <div class="chunks">
   @foreach($tasks->chunk(4) as $chunk)
     <div class="chunk">

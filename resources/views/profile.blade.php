@@ -32,6 +32,8 @@
         <div class="task">
           <div class="title">{{ $task->title }}</div>
           <div class="content">{{ $task->contents }}</div>
+          {{-- 優先度表示 --}}
+          <div class="priority">{{ $task->priority }}</div>
         </div>
         @endforeach
       </div>

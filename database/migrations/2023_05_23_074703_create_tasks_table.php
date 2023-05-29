@@ -24,6 +24,7 @@ class CreateTasksTable extends Migration
             $table->text('user_ids')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
+            $table->string('priority');
         });
     }
 
