@@ -21,6 +21,7 @@ class CreateTasksTable extends Migration
             $table->date('date')->nullable()->default(NULL);
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->text('user_ids')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });

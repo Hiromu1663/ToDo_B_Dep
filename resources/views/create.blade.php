@@ -45,6 +45,14 @@
                                 @enderror
             </td>
           </tr>
+          <tr>
+            <th class="task-item">共同製作者</th>
+            <td class="task-body">
+              @foreach ($users as $user)
+              <input type="checkbox" name="user_ids[]" value="{{ $user->id }}">{{ $user->name }}
+              @endforeach
+            </td>
+          </tr>
         </table>
         <button type="submit" href="" class="submit-btn">{{ __('登録') }}</button>
       </form>

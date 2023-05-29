@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Task;
 use App\Models\Bookmark;
 use App\Models\Comment;
-
+use App\Models\User;
 
 class TaskController extends Controller
 {
@@ -30,17 +30,18 @@ class TaskController extends Controller
         $request->validate([
             "title" => ["required", "string", "max:30"],
             "contents" => ["required", "string", "max:140"],
+            "user_ids" => ["required", "array"],
         ]);
 
-        Task::create([
-            // "id" => $request->id,
-            "user_id" => Auth::id(),
-            "title" => $request->title,
-            "contents" => $request->contents,
-            "image_at" => $image_at,
-            "date" => $request->date,
-        ]);
-
+        $task = new Task();
+        $task->user_id = Auth::id();
+        $task->title = $request->title;
+        $task->contents = $request->contents;
+        $task->image_at = $image_at;
+        $task->date = $request->date;
+        $task->user_ids = json_encode($request->user_ids); 
+        $task->save();
+    
         return redirect()->route("tasks.index");
     }
 
@@ -67,7 +68,8 @@ class TaskController extends Controller
 
     public function create()
     {
-        return view('create');
+        $users = User::all();
+        return view('create', compact('users'));
     }
 
     function edit($id)
