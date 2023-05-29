@@ -18,9 +18,14 @@ class TaskController extends Controller
         return view("index", compact("tasks"));
     }
 
+
+    // 写真ファイル登録機能追加
     public function store(Request $request)
     {
         // dd($request);
+        $image_at = uniqid() . '_' . time() . '.' . $request->file('image_at')->getClientOriginalExtension();
+
+        $request->file('image_at')->storeAs('public/images',$image_at);
 
         $request->validate([
             "title" => ["required", "string", "max:30"],
@@ -32,12 +37,33 @@ class TaskController extends Controller
             "user_id" => Auth::id(),
             "title" => $request->title,
             "contents" => $request->contents,
-            "image_at" => $request->image_at,
+            "image_at" => $image_at,
             "date" => $request->date,
         ]);
 
         return redirect()->route("tasks.index");
     }
+
+    // public function store(Request $request)
+    // {
+    //     dd($request);
+
+    //     $request->validate([
+    //         "title" => ["required", "string", "max:30"],
+    //         "contents" => ["required", "string", "max:140"],
+    //     ]);
+
+    //     Task::create([
+    //         // "id" => $request->id,
+    //         "user_id" => Auth::id(),
+    //         "title" => $request->title,
+    //         "contents" => $request->contents,
+    //         "image_at" => $request->image_at,
+    //         "date" => $request->date,
+    //     ]);
+
+    //     return redirect()->route("tasks.index");
+    // }
 
     public function create()
     {
