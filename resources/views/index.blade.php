@@ -23,6 +23,9 @@
     <div class="chunk">
       @foreach($chunk as $task)
       <div class="task">
+        <div class="image_at">
+          <img src="{{ asset('storage/images/'.$task->image_at) }}" alt="">
+        </div>
         <div class="title">{{ $task->title }}</div>
         <div class="content">{{ $task->contents }}</div>
         <div>
