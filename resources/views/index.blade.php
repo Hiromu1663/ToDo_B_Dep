@@ -12,7 +12,7 @@
 @extends('layouts.app_original')
 @section('content')
   <div class="function">
-    <p>todoリスト期限順に並び替え</p>
+    <a href="{{ route('deadline') }}"><p>todoリスト期限順に並び替え</p></a>
   </div>
   <div>
     <a href="{{ route('tasks.create') }}">タスクの追加</a>
