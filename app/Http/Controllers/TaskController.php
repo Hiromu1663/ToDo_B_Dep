@@ -40,7 +40,7 @@ class TaskController extends Controller
         $task->image_at = $image_at;
         $task->date = $request->date;
         $task->user_ids = json_encode($request->user_ids); 
-        $task->priority = $request->priority,
+        $task->priority = $request->priority;
         $task->save();
     
 
