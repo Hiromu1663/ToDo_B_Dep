@@ -39,6 +39,7 @@ class TaskController extends Controller
             "contents" => $request->contents,
             "image_at" => $image_at,
             "date" => $request->date,
+            "priority"=>$request->priority,
         ]);
 
         return redirect()->route("tasks.index");

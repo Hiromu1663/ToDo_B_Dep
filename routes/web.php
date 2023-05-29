@@ -96,3 +96,7 @@ Route::get('/user/showProfile/{id}','UserController@showProfile')->name('showPro
 
 //ドロップダウンメニュー「トップページ」からwelcomeページへ遷移
 Route::get('/welcome/{user_id}','UserController@welcome')->name('welcome');
+
+
+//優先度の追加
+Route::post('/tasks/{task_id}/priority','TaskController@priority')->name('priority');

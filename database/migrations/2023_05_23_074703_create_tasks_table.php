@@ -23,6 +23,7 @@ class CreateTasksTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
+            $table->string('priority');
         });
     }
 
