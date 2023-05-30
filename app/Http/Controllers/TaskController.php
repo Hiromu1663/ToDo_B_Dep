@@ -45,6 +45,7 @@ class TaskController extends Controller
     
 
         return redirect()->route("tasks.index");
+        // return view('index',compact('tasks'));
     }
 
     // public function store(Request $request)
@@ -78,7 +79,8 @@ class TaskController extends Controller
     {
         // dd($id);
         $task = Task::find($id);
-        return view("edit", compact("task"));
+        $users = User::all();
+        return view("edit", compact('task','users'));
     }
     
 
@@ -86,12 +88,26 @@ class TaskController extends Controller
     {
         // dd($id);
         // dd($request);
+
+        $image_at = uniqid() . '_' . time() . '.' . $request->file('image_at')->getClientOriginalExtension();
+
+        $request->file('image_at')->storeAs('public/images',$image_at);
+
+        $request->validate([
+            "title" => ["required", "string", "max:30"],
+            "contents" => ["required", "string", "max:140"],
+            "user_ids" => ["required", "array"],
+        ]);
+
         $task = Task::find($id);
-        // dd($task);
-        $task -> title = $request -> title;
-        $task -> contents = $request -> contents;
-        $task -> image_at = $request -> image_at;
-        $task -> save();
+        $task->user_id = Auth::id();
+        $task->title = $request->title;
+        $task->contents = $request->contents;
+        $task->image_at = $image_at;
+        $task->date = $request->date;
+        $task->user_ids = json_encode($request->user_ids); 
+        $task->priority = $request->priority;
+        $task->save();
         // return view("index", compact("tasks"));
         return redirect()->route("tasks.index");
     }
