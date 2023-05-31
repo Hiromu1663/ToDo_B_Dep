@@ -10769,3 +10769,12 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+
+/* footer */
+.shadow-sm2 {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
