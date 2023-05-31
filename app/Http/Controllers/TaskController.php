@@ -14,7 +14,21 @@ class TaskController extends Controller
     //
     public function index()
     {
+        // $tasks = Task::latest()->paginate(8);
+        // foreach ($tasks as $task) {
+        //     $userIds[] = json_decode($task->user_ids, true);
+        // }
+        // $tasks = $tasks->map(function ($task, $index) use ($userIds) {
+        //     $task['user_ids'] = $userIds[$index];
+        //     return $task;
+        // });
+
         $tasks = Task::latest()->paginate(8);
+
+        foreach ($tasks as $task) {
+            $task['user_ids'] = json_decode($task->user_ids, true);
+        }
+       
         return view("index", compact("tasks"));
     }
 

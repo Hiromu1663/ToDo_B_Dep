@@ -49,7 +49,7 @@
             <th class="task-item">共同製作者</th>
             <td class="task-body">
               @foreach ($users as $user)
-              <input type="checkbox" name="user_ids[]" value="{{ $user->id }}">{{ $user->name }}
+              <input type="checkbox" name="user_ids[]" value="{{ $user->avatar }}">{{ $user->name }}
               @endforeach
             </td>
           </tr>
