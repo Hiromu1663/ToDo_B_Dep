@@ -137,7 +137,7 @@ class TaskController extends Controller
         
         // タスク削除
         Task::find($id)->delete();
-        return redirect()->route("tasks.index");
+        return redirect()->back();
     }
 
     
