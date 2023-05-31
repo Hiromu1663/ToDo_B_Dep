@@ -51,8 +51,8 @@
     @foreach($tasks->chunk(4) as $chunk)
     <div class="chunk">
       @foreach($chunk as $task)
-       {{-- 共同製作者 --}}
       <div class="task-">
+        {{-- 共同製作者 --}}
         <div class="co-producer">
           @for($i = 0; $i < count($task->user_ids); $i++) 
           <img src="{{ asset('storage/images/'.$task->user_ids[$i]) }}" alt="">
@@ -83,22 +83,34 @@
               @endif
             </div>
             <div class="priority">{{ $task->priority }}</div>
+              {{-- 共同製作者のみ編集ボタン、削除ボタン表示 --}}
+            @if ($task->user_ids)
+              @php
+                $match = false;
+                for ($i = 0; $i < count($task->user_ids); $i++) {
+                  if ($task->user_ids[$i] == Auth::user()->avatar) {
+                    $match = true;
+                    break;
+                  }
+                }
+              @endphp
+              @if ($match)
+                <!-- 一致した場合の処理 -->
             <div class="btn-container">
               {{-- 編集機能追加 --}}
-              @if($task->user_id == Auth::user()->id)
-              <form action="{{ route('tasks.edit', [$task->id]) }}" method="POST">
+              <form action="{{ route('tasks.edit', [$task->id]) }}" method="GET">
                 @csrf
-                @method('get')
                 <input type="submit" value="編集">
               </form>
-              {{-- 削除機能追加 --}}
+                {{-- 削除機能追加 --}}
               <form action="{{ route('tasks.destroy', [$task->id]) }}" method="POST">
                 @csrf
                 @method('delete')
                 <input type="submit" value="削除">
               </form>
-                @endif
-            </div>
+            </div>  
+              @endif
+            @endif
   
             {{-- コメント機能 --}}
             <div class="t">
