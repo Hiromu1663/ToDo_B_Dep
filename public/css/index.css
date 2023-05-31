@@ -22,16 +22,18 @@
   /* justify-content: space-between; */
 }
 
-.task {
-  /* background-color: lime; */
+.task- {
   border: 1px solid black;
   width: 22%;
-  /* width: 200px; */
+  margin: 0 1.5%;
+}
+
+.task {
+  /* background-color: lime; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 1.5%;
 }
 
 .image_at {
@@ -170,4 +172,17 @@ margin:0 3% 3% 3%;
   display: flex;
   flex-direction: row;
   /* justify-content: ; */
+}
+
+/* 共同開発者 */
+.co-producer {
+  width: 15px;
+  height: 15px;
+  display: flex;
+}
+
+.co-producer img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
