@@ -34,13 +34,18 @@ class BookmarkController extends Controller
 
 public function indexBookmark($id)
     {
+        // $bookmarks = Bookmark::where('user_id', $id)->latest('created_at')->paginate(8);
+        // $tasks = collect();
+        // foreach($bookmarks as $bookmark) {
+        //     $task = Task::find($bookmark->task_id);
+        //     $tasks->push($task);
+        // }
+        // // latest()->paginate(8);
+        // return view("bookmark", compact("tasks"));
         $bookmarks = Bookmark::where('user_id', $id)->latest('created_at')->paginate(8);
-        $tasks = collect();
-        foreach($bookmarks as $bookmark) {
-            $task = Task::find($bookmark->task_id);
-            $tasks->push($task);
-        }
-        // latest()->paginate(8);
+        $taskIds = $bookmarks->pluck('task_id'); // ブックマークされたタスクのIDを取得
+        $tasks = Task::whereIn('id', $taskIds)->paginate(8); // ページネーションをサポートするタスクのリストを取得（1ページあたり8件）
+    
         return view("bookmark", compact("tasks"));
     }
 }
