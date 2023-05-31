@@ -53,7 +53,7 @@
     @endif 
 </div>
   <div class="container-3">
-    <img src="{{ url('storage/images/topimg.png') }}" alt="Image">
+    <img src="{{ url('image/topimg.png') }}" alt="Image">
   </div>
 </div>
 </body>

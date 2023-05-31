@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+.add-button {
+ font-size: 25px;
+ color: rgb(71, 68, 68);
+}
 
 .chunks {
   /* background-color: bisque; */
