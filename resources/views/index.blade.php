@@ -101,13 +101,13 @@
             </div>
   
             {{-- コメント機能 --}}
-            <div>
-              <a href="{{ route('comments.create',$task->id) }}">コメントする</a>
+            <div class="t">
+              <a href="{{ route('comments.create',$task->id) }}"><i class="far fa-comment-dots"></i></a>
             </div>
             {{-- <div class="row justify-content-center"> --}}
             <div>
               <div class="">
-                コメント一覧
+                ▼コメント一覧▼
                 @foreach ($task->comments as $comment)
                 <div class="card mt-3">
                   {{-- <h5 class="card-header">投稿者：{{ $comment->user->name }}</h5> --}}
@@ -129,9 +129,9 @@
           </div>
           <div class="bookmark">
             @if($task->bookmarkedBy(Auth::user())->exists())
-            <a href="/bookmarks/{{ $task->bookmarkedBy(Auth::user())->firstOrfail()->id }}">ブックマークを外す</a>
+            <a href="/bookmarks/{{ $task->bookmarkedBy(Auth::user())->firstOrfail()->id }}"><i class="fas fa-bookmark"></i></a>
             @else
-            <a href="/tasks/{{ $task->id }}/bookmarks">ブックマーク</a> 
+            <a href="/tasks/{{ $task->id }}/bookmarks"><i class="far fa-bookmark"></i></a> 
             @endif
           </div>
         </div>
