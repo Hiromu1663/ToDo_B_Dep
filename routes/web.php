@@ -77,6 +77,9 @@ Route::get('tasks/deadline' ,'TaskController@deadline')->name('deadline');
 
 // Route::delete('/tasks/{id}','TaskController@destroy')->name('tasks.destroy');
 
+// Ajaxを利用して、ページ遷移を伴わずに削除するための記載。
+Route::post('/tasks/{id}','TaskController@destroy')->name('tasks.destroy');
+
 
 
 //コメント機能
