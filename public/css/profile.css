@@ -45,19 +45,35 @@
   border: 1px solid black;
 }
 
-.function {
-  /* background-color: chartreuse; */
-  width: 80vw;
-  display: flex;
-  flex-direction: row;
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* .function {
+  background-color: chartreuse;
+  width: 90%;
   margin: 50px auto 0;
 }
 
 .function p {
+  width: 240px;
+  text-align: center;
   border: 1px solid black;
   padding: 5px;
-  margin-right: 30px;
 }
+
+.function p::before {
+  content: "";
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+  transform: rotate(45deg);
+  vertical-align: 2px;
+  margin-right: 7px;
+} */
 
 .chunks {
   /* background-color: bisque; */
@@ -81,9 +97,148 @@
   /* background-color: lime; */
   border: 1px solid black;
   width: 22%;
+  /* width: 200px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 0 1.5%;
+}
+
+.image_at {
+  background-color: aqua;
+  width: 50px;
+  height: 50px;
+}
+
+.image_at img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* アコーディオン */
+.f-row {
+  /* background-color: aqua; */
+  margin-left: 6vw;
+  margin-top: 30px;
+  width: 250px;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.dropdown{
+  display:none;
+}
+
+.function label {
+  display:block;
+  width: 200px;
+  padding: 5px 20px;
+  /* background:gold; */
+  border: 1px solid black;
+}
+
+.function li {
+  display: block;
+  width: 200px;
+  padding: 5px 20px;
+  /* background-color: gold; */
+  border-bottom: 1px solid black;
+
+}
+
+li:hover,
+label:hover{
+  background: whitesmoke;
+}
+
+/* .function li::before,
+.function label::before {
+  background-color: bisque;
+  content:"";
+  display:block;
+  margin-top: 5px;
+  margin-right: 20px;
+  height: 10px;
+  width: 10px;
+  border-top:#000 2px solid;
+  border-left:#000 2px solid;
+  transform:rotate(135deg);
+} */
+
+input[type="checkbox"]{
+  display:none;
+}
+label[for="menu"]{
+  display:block;
+  /* background:orange; */
+}
+label[for="menu"]::before{
+  transform:rotate(225deg);
+}
+#menu:checked + .dropdown{
+  display:block;
+}
+
+.detail-btn {
+  position: relative;/*+マークの位置基準とするためrelative指定*/
+  cursor: pointer;
+  font-size:1rem;
+  font-weight: normal;
+  padding: 3% 3% 3% 50px;
+  transition: all .5s ease;
+}
+
+/*アイコンの＋と×*/
+.detail-btn::before,
+.detail-btn::after{
+  position: absolute;
+  content:'';
+  width: 15px;
+  height: 2px;
+  background-color: #333;
+  
+}
+.detail-btn::before{
+  top:48%;
+  left: 15px;
+  transform: rotate(0deg);
+  
+}
+.detail-btn::after{    
+  top:48%;
+  left: 15px;
+  transform: rotate(90deg);
+
+}
+
+/*　closeというクラスがついたら形状変化　*/
+
+.detail-btn.close::before{
+transform: rotate(45deg);
+}
+
+.detail-btn.close::after{
+transform: rotate(-45deg);
+}
+
+/*アコーディオンで現れるエリア*/
+.box {
+  display: none;/*はじめは非表示*/
+  background: #f3f3f3;
+margin:0 3% 3% 3%;
+  padding: 3%;
+}
+
+.limit-text{
+  color: red !important;
+}
+
+.btn-container{ 
+  display: flex;
+  flex-direction: row;
+  /* justify-content: ; */
 }
