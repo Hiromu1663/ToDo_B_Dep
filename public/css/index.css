@@ -1,101 +1,108 @@
 * {
-  margin: 0;
-  padding: 0;
-}
-
-.add-button {
- font-size: 25px;
- color: rgb(71, 68, 68);
+    margin: 0;
+    padding: 0;
 }
 
 .chunks {
-  /* background-color: bisque; */
-  margin: 50px auto 50px;
-  height: 600px;
-  width: 90vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+    /* background-color: bisque; */
+    margin: 50px auto 50px;
+    height: 600px;
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .chunk {
-  /* background-color: burlywood; */
-  height: 45%;
-  display: flex;
-  flex-direction: row;
-  /* justify-content: space-between; */
+    /* background-color: burlywood; */
+    height: 45%;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
 }
 
 .task- {
-  border: 1px solid black;
-  width: 22%;
-  margin: 0 1.5%;
-  position: relative;
+    border: 1px solid rgb(205, 202, 202);
+    width: 22%;
+    margin: 0 1.5%;
+    box-shadow: 0 2px 4px rgba(93, 92, 92, 0.3);
+    position: relative;
 }
 
 .task {
-  /* background-color: lime; */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    /* background-color: lime; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .bookmark {
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
 }
 
 .image_at {
-  /* background-color: aqua; */
-  width: 50px;
-  height: 50px;
+    /* background-color: aqua; */
+    width: 50px;
+    height: 50px;
 }
 
 .image_at img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.title {
+  font-size: 18px;
 }
 
 /* アコーディオン */
 .f-row {
-  /* background-color: aqua; */
-  margin-left: 6vw;
-  margin-top: 30px;
-  width: 250px;
-  height: 100px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+    /* background-color: aqua; */
+    margin-left: 6vw;
+    margin-top: 30px;
+    width: 200px;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-.dropdown{
-  display:none;
+.dropdown {
+    display: none;
 }
 
 .function label {
-  display:block;
-  width: 200px;
-  padding: 5px 20px;
-  /* background:gold; */
-  border: 1px solid black;
+    display:block;
+    width: 150px;
+    padding: 5px 20px;
+    /* background:gold; */
+    /* border: 1px solid black; */
+    font-size: 20px;
+    color: rgb(71, 68, 68);
+}
+
+.add-button {
+    padding: 10px 10px;
+    font-size: 23px;
+    color: rgb(71, 68, 68);
 }
 
 .function li {
-  display: block;
-  width: 200px;
-  padding: 5px 20px;
-  /* background-color: gold; */
-  border-bottom: 1px solid black;
-
+    display: block;
+    width: 100px;
+    padding: 5px 20px;
+    /* background-color: gold; */
+    border-bottom: 1px solid black;
 }
 
 li:hover,
-label:hover{
-  background: whitesmoke;
+label:hover {
+    background: whitesmoke;
 }
 
 /* .function li::before,
@@ -112,90 +119,89 @@ label:hover{
   transform:rotate(135deg);
 } */
 
-input[type="checkbox"]{
-  display:none;
+input[type="checkbox"] {
+    display: none;
 }
-label[for="menu"]{
-  display:block;
-  /* background:orange; */
+label[for="menu"] {
+    display: block;
+    /* background:orange; */
 }
-label[for="menu"]::before{
-  transform:rotate(225deg);
+label[for="menu"]::before {
+    transform: rotate(225deg);
 }
-#menu:checked + .dropdown{
-  display:block;
+#menu:checked + .dropdown {
+    display: block;
 }
 
 .detail-btn {
-  position: relative;/*+マークの位置基準とするためrelative指定*/
-  cursor: pointer;
-  font-size:1rem;
-  font-weight: normal;
-  padding: 3% 3% 3% 50px;
-  transition: all .5s ease;
+    position: relative; /*+マークの位置基準とするためrelative指定*/
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: normal;
+    padding: 3% 3% 3% 50px;
+    transition: all 0.5s ease;
 }
 
 /*アイコンの＋と×*/
 .detail-btn::before,
-.detail-btn::after{
-  position: absolute;
-  content:'';
-  width: 15px;
-  height: 2px;
-  background-color: #333;
-  
+.detail-btn::after {
+    position: absolute;
+    content: "";
+    width: 15px;
+    height: 2px;
+    background-color: #333;
 }
-.detail-btn::before{
-  top:48%;
-  left: 15px;
-  transform: rotate(0deg);
-  
+.detail-btn::before {
+    top: 48%;
+    left: 15px;
+    transform: rotate(0deg);
 }
-.detail-btn::after{    
-  top:48%;
-  left: 15px;
-  transform: rotate(90deg);
-
+.detail-btn::after {
+    top: 48%;
+    left: 15px;
+    transform: rotate(90deg);
 }
 
 /*　closeというクラスがついたら形状変化　*/
 
-.detail-btn.close::before{
-transform: rotate(45deg);
+.detail-btn.close::before {
+    transform: rotate(45deg);
 }
 
-.detail-btn.close::after{
-transform: rotate(-45deg);
+.detail-btn.close::after {
+    transform: rotate(-45deg);
 }
 
 /*アコーディオンで現れるエリア*/
 .box {
-  display: none;/*はじめは非表示*/
-  background: #f3f3f3;
-margin:0 3% 3% 3%;
-  padding: 3%;
+    display: none; /*はじめは非表示*/
+    background: #f3f3f3;
+    margin: 0 3% 3% 3%;
+    padding: 3%;
 }
 
-.limit-text{
-  color: red !important;
+.limit-text {
+    color: red !important;
 }
 
-.btn-container{ 
-  display: flex;
-  flex-direction: row;
-  /* justify-content: ; */
+.btn-container {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: ; */
 }
 
 /* 共同開発者 */
 .co-producer {
-  width: 15px;
-  height: 15px;
-  display: flex;
+    width: 15px;
+    height: 15px;
+    display: flex;
 }
 
 .co-producer img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
 }
+
+

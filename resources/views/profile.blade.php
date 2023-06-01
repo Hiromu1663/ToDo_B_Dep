@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{{ asset("css/profile.css") }}">
+
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet"> 
    {{-- <script src="{{ asset("js/script.js") }}"></script> --}}
+
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="{{ asset('js/Ajax.js') }}"></script>
   <script>
@@ -26,35 +28,43 @@
       });
     });
     </script>
-  <title>マイページ</title>
+  <title>Mypage</title>
 </head>
 @extends('layouts.app_original')
 @section('content')
   <main>
-    <div class="profile">
-      <div class="profile-1">
-        <a href="{{ route('showProfile', Auth::user()->id )}}"><img src="{{ asset('storage/images/'.$user->avatar) }}" alt=""></a>
-      </div>
-      <div class="profile-2">
-        <p>{{ Auth::user()->name }}</p>
-        <p >{{  Auth::user()->email  }}</p>
+    <div class="background">
+      <div class="profile">
+        <div class="profile-1">
+          <a href="{{ route('showProfile', Auth::user()->id )}}"><img src="{{ asset('storage/images/'.$user->avatar) }}" alt=""></a>
+        </div>
+        <div class="profile-2">
+          <p>{{ Auth::user()->name }}</p>
+          <p >{{  Auth::user()->email  }}</p>
+        <div class="profile-3">
+          <a href="https://www.facebook.com/"><i class="fab fa-facebook-square"></i></a>
+          <a href="https://twitter.com/?logout=1685596638674"><i class="fab fa-twitter-square"></i></a>
+          <a href="https://www.instagram.com/?hl=ja"><i class="fab fa-instagram"></i></a>
+        </div> 
+        </div>
       </div>
     </div>
 
-    <div class="f-row">
-      <div class="function">
-        <label for="menu">並び替え</label>
-        <input type="checkbox" id="menu">
-        <ul class="dropdown">
-          <a href="{{ route('tasks.index') }}"><li>登録順</li></a>
-          {{-- <a href="{{ route('deadline') }}"><li>期限順</li></a> --}}
-          <li>重要度順</li>
-        </ul>
+      <div class="f-row">
+        <div class="function">
+          <label for="menu">並び替え</label>
+          <input type="checkbox" id="menu">
+          <ul class="dropdown">
+            <a href="{{ route('tasks.index') }}"><li>登録順</li></a>
+            <a href="{{ route('deadline') }}"><li>期限順</li></a>
+            <li>重要度順</li>
+          </ul>
+        </div>
+        <div>
+          <a href="{{ route('tasks.create') }}">＋</a>
+        </div>
+
       </div>
-      <div>
-        <a href="{{ route('tasks.create') }}">＋</a>
-      </div>
-    </div>
 
     <div class="chunks">
       @foreach($tasks->chunk(4) as $chunk)
