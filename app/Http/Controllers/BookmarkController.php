@@ -51,4 +51,30 @@ public function indexBookmark($id)
     
         return view("bookmark", compact("tasks"));
     }
+
+    // 期限順並び替え
+    public function deadline($id)
+    {
+        $bookmarks = Bookmark::where('user_id', $id)->latest('created_at')->paginate(8);
+        $taskIds = $bookmarks->pluck('task_id'); // ブックマークされたタスクのIDを取得 
+        $tasks = Task::whereIn('id', $taskIds)->orderBy('date', 'asc')->paginate(8);
+        foreach ($tasks as $task) {
+            $task['user_ids'] = json_decode($task->user_ids, true);
+        }
+
+        return view("bookmark", compact("tasks"));
+    }
+
+    // 優先度順並び替え
+    public function priorityOder($id)
+    {
+        $bookmarks = Bookmark::where('user_id', $id)->latest('created_at')->paginate(8);
+        $taskIds = $bookmarks->pluck('task_id'); // ブックマークされたタスクのIDを取得 
+        $tasks = Task::whereIn('id', $taskIds)->orderBy('priority', 'asc')->paginate(8);
+        foreach ($tasks as $task) {
+            $task['user_ids'] = json_decode($task->user_ids, true);
+        }
+
+        return view("bookmark", compact("tasks"));
+    }
 }
