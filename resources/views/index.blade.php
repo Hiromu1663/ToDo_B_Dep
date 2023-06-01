@@ -4,11 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+
   <link rel="stylesheet" href="{{ asset("css/app.css") }}">
   <link rel="stylesheet" href="{{ asset("css/index.css") }}">
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet"> 
    {{-- <script src="{{ asset("js/script.js") }}"></script> --}}
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="{{ asset('js/Ajax.js') }}"></script>
   <script>
     $(document).ready(function() {
       $('.detail-btn').on('click', function() {//タイトル要素をクリックしたら
@@ -52,13 +55,14 @@
     @foreach($tasks->chunk(4) as $chunk)
     <div class="chunk">
       @foreach($chunk as $task)
-       {{-- 共同製作者 --}}
       <div class="task-">
+        {{-- 共同製作者 --}}
         <div class="co-producer">
-          @for($i = 0; $i < count($task->user_ids); $i++) 
-          <img src="{{ asset('storage/images/'.$task->user_ids[$i]) }}" alt="">
-          @endfor
+          @foreach($task->user_ids as $user_id)
+            <img src="{{ asset('storage/images/'.$user_id) }}" alt="">
+          @endforeach
         </div>
+
         <div class="task">
           @if($task->image_at !== null)
           <div class="image_at">
@@ -84,22 +88,39 @@
               @endif
             </div>
             <div class="priority">{{ $task->priority }}</div>
+              {{-- 共同製作者のみ編集ボタン、削除ボタン表示 --}}
+            @if ($task->user_ids)
+              @php
+                $match = false;
+                for ($i = 0; $i < count($task->user_ids); $i++) {
+                  if ($task->user_ids[$i] == Auth::user()->avatar) {
+                    $match = true;
+                    break;
+                  }
+                }
+              @endphp
+              @if ($match)
+                <!-- 一致した場合の処理 -->
             <div class="btn-container">
               {{-- 編集機能追加 --}}
-              @if($task->user_id == Auth::user()->id)
-              <form action="{{ route('tasks.edit', [$task->id]) }}" method="POST">
+              <form action="{{ route('tasks.edit', [$task->id]) }}" method="GET">
                 @csrf
+
                 @method('get')
                 <input type="submit" value="Edit">
+
               </form>
-              {{-- 削除機能追加 --}}
+                {{-- 削除機能追加 --}}
               <form action="{{ route('tasks.destroy', [$task->id]) }}" method="POST">
                 @csrf
                 @method('delete')
+
                 <input type="submit" value="Delet">
+
               </form>
-                @endif
-            </div>
+            </div>  
+              @endif
+            @endif
   
             {{-- コメント機能 --}}
             <div class="t">

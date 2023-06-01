@@ -137,7 +137,7 @@ class TaskController extends Controller
         
         // タスク削除
         Task::find($id)->delete();
-        return redirect()->route("tasks.index");
+        return redirect()->back();
     }
 
     
@@ -145,6 +145,10 @@ class TaskController extends Controller
     public function deadline()
     {
         $tasks = Task::orderBy('date')->paginate(8);
+        foreach ($tasks as $task) {
+            $task['user_ids'] = json_decode($task->user_ids, true);
+        }
+
         return view("index", compact("tasks"));
     }
 
@@ -153,6 +157,10 @@ class TaskController extends Controller
     public function show()
     {
         $tasks = Task::orderBy('date')->paginate(8);
+        foreach ($tasks as $task) {
+            $task['user_ids'] = json_decode($task->user_ids, true);
+        }
+
         return view("index", compact("tasks"));
     }
 }

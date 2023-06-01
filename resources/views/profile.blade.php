@@ -45,6 +45,7 @@
         </div>
       </div>
     </div>
+
       <div class="f-row">
         <div class="function">
           <label for="menu">並び替え</label>
@@ -58,6 +59,7 @@
         <div>
           <a href="{{ route('tasks.create') }}">＋</a>
         </div>
+
       </div>
 
     <div class="chunks">

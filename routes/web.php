@@ -63,6 +63,7 @@ Route::resource('tasks','TaskController');
 Route::get('tasks/deadline' ,'TaskController@deadline')->name('deadline');
 
 
+
 // Route::get('/index','TaskController@index')->name('tasks.index');
 
 // Route::get('/tasks/create','TaskController@create')->name('tasks.create');
@@ -76,6 +77,9 @@ Route::get('tasks/deadline' ,'TaskController@deadline')->name('deadline');
 // Route::put('/task/{id}','TaskController@update')->name('tasks.update');
 
 // Route::delete('/tasks/{id}','TaskController@destroy')->name('tasks.destroy');
+
+// Ajaxを利用して、ページ遷移を伴わずに削除するための記載。
+Route::post('/tasks/{id}','TaskController@destroy')->name('tasks.destroy');
 
 
 
