@@ -44,6 +44,10 @@ public function indexBookmark($id)
         $bookmarks = Bookmark::where('user_id', $id)->latest('created_at')->paginate(8);
         $taskIds = $bookmarks->pluck('task_id'); // ブックマークされたタスクのIDを取得
         $tasks = Task::whereIn('id', $taskIds)->paginate(8); // ページネーションをサポートするタスクのリストを取得（1ページあたり8件）
+
+        foreach ($tasks as $task) {
+            $task['user_ids'] = json_decode($task->user_ids, true);
+        }
     
         return view("bookmark", compact("tasks"));
     }
