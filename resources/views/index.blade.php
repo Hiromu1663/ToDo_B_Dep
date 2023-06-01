@@ -29,7 +29,7 @@
       });
     });
   </script>
-  <title>タスク一覧</title>
+  <title>TASKS</title>
 </head>
 @extends('layouts.app_original')
 @section('content')
@@ -37,14 +37,15 @@
   <!-- Todoリスト並び替え -->
   <div class="f-row">
     <div class="function">
-      <label for="menu">並び替え</label>
+      <label for="menu">Sort by</label>
       <input type="checkbox" id="menu">
       <ul class="dropdown">
-        <a href="{{ route('tasks.index') }}"><li>登録順</li></a>
-        <a href="{{ route('deadline') }}"><li>期限順</li></a>
-        <a href="{{ route('priorityOder') }}"><li>優先度順</li></a>
+        <a href="{{ route('tasks.index') }}"><li>Submit</li></a>
+        <a href="{{ route('deadline') }}"><li>Deadline</li></a>
+        <a href="{{ route('priorityOder') }}"><li>Priority</li></a>
       </ul>
     </div>
+
     <div>
       <a class="add-button" href="{{ route('tasks.create') }}"><i class="far fa-plus-square"></i></a>
     </div>
@@ -70,9 +71,9 @@
           @endif
           <div class="title">{{ $task->title }}</div>
           <div class="content">{{ $task->contents }}</div>
-          <div class="detail-btn">詳細</div>
+          <div class="detail-btn">Detail</div>
           <div class="box">
-            <div class="date">投稿日：{{ $task->created_at->format('Y-m-d') }}</div>
+            <div class="date">Created：{{ $task->created_at->format('Y-m-d') }}</div>
             <div class="limit">
               @php
                 $now = \Carbon\Carbon::now();
@@ -81,9 +82,9 @@
               @endphp
   
               @if ($daysRemaining <= 3)
-                <span class="limit-text">期限：あと{{ $daysRemaining }}日</span>
+                <span class="limit-text">Deadline：{{ $daysRemaining }}day left</span>
               @else
-                期限：あと{{ $daysRemaining }}日
+                Deadline：{{ $daysRemaining }} day left
               @endif
             </div>
             {{-- 優先度表示 --}}
@@ -119,13 +120,18 @@
               {{-- 編集機能追加 --}}
               <form action="{{ route('tasks.edit', [$task->id]) }}" method="GET">
                 @csrf
-                <input type="submit" value="編集">
+
+                @method('get')
+                <input type="submit" value="Edit">
+
               </form>
                 {{-- 削除機能追加 --}}
               <form action="{{ route('tasks.destroy', [$task->id]) }}" method="POST">
                 @csrf
                 @method('delete')
-                <input class="delete-button" type="submit" value="削除">
+
+                <input type="submit" value="Delet">
+
               </form>
             </div>  
               @endif
@@ -138,13 +144,13 @@
             {{-- <div class="row justify-content-center"> --}}
             <div>
               <div class="">
-                ▼コメント一覧▼
+                ▼ Comments ▼
                 @foreach ($task->comments as $comment)
                 <div class="card mt-3">
                   {{-- <h5 class="card-header">投稿者：{{ $comment->user->name }}</h5> --}}
                   <div class="card-body">
                     {{-- <h5 class="card-title">投稿日時：{{ $comment->created_at }}</h5> --}}
-                    <p class="card-text">内容：{{ $comment->body }}</p>
+                    <p class="card-text">Content：{{ $comment->body }}</p>
                     @if($comment->user_id == Auth::user()->id)
                     <form action="{{ route('comments.destroy', [$comment->id]) }}" method="POST">
                       @csrf
@@ -172,5 +178,7 @@
       @endforeach
   </div>
   {{ $tasks->links() }}
+
+
 
   @endsection
