@@ -6,6 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{{ asset("css/app.css") }}">
   <link rel="stylesheet" href="{{ asset("css/index.css") }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet">
   {{-- <script src="{{ asset("js/app.js") }}"></script> --}}
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet"> 
    {{-- <script src="{{ asset("js/script.js") }}"></script> --}}
@@ -32,6 +37,10 @@
 </head>
 @extends('layouts.app_original')
 @section('content')
+<div class="background">
+  <div class="top-title">
+   <h1>Bookmarks</h1>
+  </div>
 <div class="f-row">
   <div class="function">
     <label for="menu">Sort by</label>
@@ -47,7 +56,7 @@
     <a class="add-button" href="{{ route('tasks.create') }}"><i class="far fa-plus-square"></i></a>
   </div>
 </div>
-  
+</div>
 <div class="chunks">
   @foreach($tasks->chunk(4) as $chunk)
   <div class="chunk">

@@ -10,6 +10,10 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset("css/welcome.css") }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+  
 
     <!-- Styles -->
     {{-- <style>
@@ -30,7 +34,7 @@
       <div class="text-1">
         <p>Streamline your tasks, simplify your life.</p>
       </div>
-      <div class="text-2">
+      <div class="text-2" style="font-family: 'Roboto', sans-serif;">
         <h1>Organize your life, <br>unleash your potential.</h1>
       </div>
       <div class="text-3">

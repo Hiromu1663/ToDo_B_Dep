@@ -88,17 +88,12 @@
                           </a>
                           <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <li><a class="dropdown-item" href="{{ route('welcome', ['user_id' => Auth::user()->id]) }}" onclick="event.preventDefault();
-                              document.getElementById('go-welcome').submit();">{{ __('TopPage') }}</a></li>
+                              document.getElementById('go-welcome').submit();">{{ __('Top Page') }}</a></li>
                             <form id="go-welcome" action="{{ route('welcome', ['user_id' => Auth::user()->id]) }}" method="GET" class="d-none">
                               @csrf
                             </form>      
-                            <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                              document.getElementById('logout-form').submit();">{{ __('Logout') }}</a></li>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                              @csrf
-                            </form>
                             <li><a class="dropdown-item" href="{{ route('tasks.index', Auth::user()->id )}}" onclick="event.preventDefault();
-                              document.getElementById('go-index').submit();">{{ __('Tasks') }}</a></li>
+                              document.getElementById('go-index').submit();">{{ __('My Tasks') }}</a></li>
                             <form id="go-index" action="{{ route('tasks.index', Auth::user()->id )}}" method="GET" class="d-none">
                               @csrf
                             </form>
@@ -108,8 +103,13 @@
                               @csrf
                             </form>
                             <li><a class="dropdown-item" href="{{ route('showProfile', Auth::user()->id )}}" onclick="event.preventDefault();
-                              document.getElementById('go-profile').submit();">{{ __('MyPage') }}</a></li>
+                              document.getElementById('go-profile').submit();">{{ __('My Page') }}</a></li>
                             <form id="go-profile" action="{{ route('showProfile', Auth::user()->id )}}" method="GET" class="d-none">
+                              @csrf
+                            </form>
+                            <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                              document.getElementById('logout-form').submit();">{{ __('Log out') }}</a></li>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                               @csrf
                             </form>
                           </ul>
