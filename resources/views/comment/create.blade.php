@@ -6,10 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="{{ asset("css/app.css") }}">
   <link rel="stylesheet" href="{{ asset("css/create_comment.css") }}">
-  <title>コメント登録</title>
+  <title>Comment Create</title>
 </head>
-<body>
-  <header></header>
+@extends('layouts.app_original')
+@section('content')
 <div class="container">
       
   <div class="chunks">
@@ -29,14 +29,13 @@
             @csrf
             <input type="hidden" name="task_id" value="{{ $task->id }}">
             <div class="form-group">
-                <label>コメント</label>
+                <label>Comment</label>
                 <textarea class="form-control" 
-                placeholder="内容" rows="5" name="comment"></textarea>
+                placeholder="Content" rows="5" name="comment"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary mt-3">コメントする</button>
+            <button type="submit" class="btn btn-primary mt-3">Comment Create</button>
         </form>
     </div>
   </div>
 </div>
-</body>
-</html>
+@endsection

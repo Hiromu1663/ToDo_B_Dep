@@ -1,40 +1,40 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>タスクの登録</title>
+  <title>Task Creatio</title>
   <link rel="stylesheet" href="{{ asset("css/create.css") }}">
 </head>
 @extends('layouts.app_original')
 @section('content')
   <main>
     <div class="add-task">
-      <h1 class="task-ttl">タスクの登録</h1>
+      <h1 class="task-ttl">Create ToDo</h1>
       <form action="{{ route('tasks.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <table class="task-table">
           <tr>
-            <th class="task-item">タイトル</th>
+            <th class="task-item">Title</th>
             <td class="task-body">
               <input type="text" class="form-text" name="title">
             </td>
           </tr>
           <tr>
-            <th class="task-item">日付</th>
+            <th class="task-item">Date</th>
             <td class="task-body">
-              <input type="date" class="form-text" min="2023-05-22" max="2025-12-31" name="date">
-            </td>
+              <input type="date" class="form-text" name="date">
+            </td>            
           </tr>
           <tr>
-            <th class="task-item">詳細</th>
+            <th class="task-item">Detail</th>
             <td class="task-body">
               <textarea class="form-textarea" name="contents"></textarea>
             </td>
           </tr>
           <tr>
-            <th class="task-item">資料</th>
+            <th class="task-item">Document</th>
             <td class="task-body">
               <input id="image_at" type="file" class="@error('image_at') is-invalid @enderror" name="image_at">
               
@@ -46,7 +46,7 @@
             </td>
           </tr>
           <tr>
-            <th class="task-item">共同製作者</th>
+            <th class="task-item">Share</th>
             <td class="task-body">
               @foreach ($users as $user)
               <input type="checkbox" name="user_ids[]" value="{{ $user->avatar }}">{{ $user->name }}
@@ -54,15 +54,15 @@
             </td>
           </tr>
           <tr>
-          <th class="task-item">優先度</th>
+          <th class="task-item">Priority</th>
           <td class="task-body">
-            <input type="radio" name="priority" value="優先度 低">低
-            <input type="radio" name="priority" value="優先度 中">中
-            <input type="radio" name="priority" value="優先度 高">高
+            <input type="radio" name="priority" value="Priority:Low">Low
+            <input type="radio" name="priority" value="Priority:Middle">Middle
+            <input type="radio" name="priority" value="Priority:Hight">Hight
           </td>
         </tr>
         </table>
-        <button type="submit" href="" class="submit-btn">{{ __('登録') }}</button>
+        <button type="submit" href="" class="submit-btn">{{ __('Submit') }}</button>
       </form>
     </div>
   </main>
