@@ -44,7 +44,7 @@
         <input type="checkbox" id="menu">
         <ul class="dropdown">
           <a href="{{ route('tasks.index') }}"><li>登録順</li></a>
-          <a href="{{ route('deadline') }}"><li>期限順</li></a>
+          {{-- <a href="{{ route('deadline') }}"><li>期限順</li></a> --}}
           <li>重要度順</li>
         </ul>
       </div>

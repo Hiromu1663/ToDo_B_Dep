@@ -4,11 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+
   <link rel="stylesheet" href="{{ asset("css/app.css") }}">
   <link rel="stylesheet" href="{{ asset("css/index.css") }}">
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet"> 
    {{-- <script src="{{ asset("js/script.js") }}"></script> --}}
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="{{ asset('js/Ajax.js') }}"></script>
   <script>
     $(document).ready(function() {
       $('.detail-btn').on('click', function() {//タイトル要素をクリックしたら
@@ -54,10 +57,11 @@
       <div class="task-">
         {{-- 共同製作者 --}}
         <div class="co-producer">
-          @for($i = 0; $i < count($task->user_ids); $i++) 
-          <img src="{{ asset('storage/images/'.$task->user_ids[$i]) }}" alt="">
-          @endfor
+          @foreach($task->user_ids as $user_id)
+            <img src="{{ asset('storage/images/'.$user_id) }}" alt="">
+          @endforeach
         </div>
+
         <div class="task">
           @if($task->image_at !== null)
           <div class="image_at">
@@ -106,7 +110,7 @@
               <form action="{{ route('tasks.destroy', [$task->id]) }}" method="POST">
                 @csrf
                 @method('delete')
-                <input type="submit" value="削除">
+                <input class="delete-button" type="submit" value="削除">
               </form>
             </div>  
               @endif
