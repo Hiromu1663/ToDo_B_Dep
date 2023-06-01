@@ -36,44 +36,44 @@
 @extends('layouts.app_original')
 @section('content')
 <main class="all">
-<div class="top-title">
-  <h1>ToDo List</h1>
-</div>
-  <!-- Todoリスト並び替え -->
-  <div class="f-row">
-    <div class="function">
-      <label for="menu">Sort by</label>
-      <input type="checkbox" id="menu">
-      <ul class="dropdown">
-        <a href="{{ route('tasks.index') }}"><li>Submit</li></a>
-        <a href="{{ route('deadline') }}"><li>Deadline</li></a>
-        <a href="{{ route('priorityOder') }}"><li>Priority</li></a>
-      </ul>
+  <div class="background">
+    <div class="top-title">
+     <h1>ToDo List</h1>
     </div>
+     <!-- Todoリスト並び替え -->
+     <div class="f-row">
+       <div class="function">
+         <label for="menu">Sort by</label>
+         <input type="checkbox" id="menu">
+         <ul class="dropdown">
+           <a href="{{ route('tasks.index') }}"><li>Submit</li></a>
+           <a href="{{ route('deadline') }}"><li>Deadline</li></a>
+           <a href="{{ route('priorityOder') }}"><li>Priority</li></a>
+         </ul>
+       </div>
 
-    <div>
-      <a class="add-button" href="{{ route('tasks.create') }}"><i class="far fa-plus-square"></i></a>
+       <div>
+         <a class="add-button" href="{{ route('tasks.create') }}"><i class="far fa-plus-square"></i></a>
+       </div>
+     </div>
     </div>
-  </div>
-  
   <div class="chunks">
     @foreach($tasks->chunk(4) as $chunk)
     <div class="chunk">
       @foreach($chunk as $task)
       <div class="task-">
-        {{-- 共同製作者 --}}
-        <div class="co-producer">
-          @foreach($task->user_ids as $user_id)
-            <img src="{{ asset('storage/images/'.$user_id) }}" alt="">
-          @endforeach
-        </div>
-
         <div class="task">
           @if($task->image_at !== null)
           <div class="image_at">
             <img src="{{ asset('storage/images/'.$task->image_at) }}" alt="">
           </div>
           @endif
+            {{-- 共同製作者 --}}
+            <div class="co-producer">
+              @foreach($task->user_ids as $user_id)
+                <img src="{{ asset('storage/images/'.$user_id) }}" alt="">
+              @endforeach
+            </div>
           <div class="title">{{ $task->title }}</div>
           <div class="content">{{ $task->contents }}</div>
           <div class="detail-btn">Detail</div>

@@ -7,7 +7,7 @@
   height: 45vh; 
   width: 100vw;
   position: relative;  
-  background: url(../image/p-sample2.png) no-repeat center;
+  background: url(../image/pexels-roman-odintsov-4871011.jpg) no-repeat center;
   background-size: cover;
   z-index: 1;
 }  
@@ -47,6 +47,7 @@
 
 .profile-1 img{
   display: block;
+  height: 100%;
   width: 100%;
   object-fit: cover;
 }
