@@ -56,9 +56,9 @@
           <tr>
           <th class="task-item">優先度</th>
           <td class="task-body">
-            <input type="radio" name="priority" value="優先度 低">低
-            <input type="radio" name="priority" value="優先度 中">中
-            <input type="radio" name="priority" value="優先度 高">高
+            <input type="radio" name="priority" value="C">低
+            <input type="radio" name="priority" value="B">中
+            <input type="radio" name="priority" value="A">高
           </td>
         </tr>
         </table>

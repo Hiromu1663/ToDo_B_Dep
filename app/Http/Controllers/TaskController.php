@@ -152,15 +152,15 @@ class TaskController extends Controller
         return view("index", compact("tasks"));
     }
 
-
-    // route("deadline")実行してもdeadline()が実行されずに、なぜかshow()が実行されてしまう。
-    public function show()
+    // 優先度順並び替え
+    public function priorityOder()
     {
-        $tasks = Task::orderBy('date')->paginate(8);
-        foreach ($tasks as $task) {
-            $task['user_ids'] = json_decode($task->user_ids, true);
+    $tasks = Task::orderBy('priority')->paginate(8);
+    foreach ($tasks as $task) {
+        $task['user_ids'] = json_decode($task->user_ids, true);
         }
-
         return view("index", compact("tasks"));
     }
 }
+
+

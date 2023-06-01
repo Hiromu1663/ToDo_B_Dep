@@ -60,7 +60,10 @@ Route::get('/indexBookmark/{user_id}','BookmarkController@indexBookmark')->name(
 Route::resource('tasks','TaskController');
 
 // 期限順並び替え
-Route::get('tasks/deadline' ,'TaskController@deadline')->name('deadline');
+Route::get('deadline' ,'TaskController@deadline')->name('deadline');
+
+// 優先度順並び替え
+Route::get('priorityOder', 'TaskController@priorityOder')->name('priorityOder');
 
 
 
