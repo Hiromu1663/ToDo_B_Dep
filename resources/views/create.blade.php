@@ -56,9 +56,9 @@
           <tr>
           <th class="task-item">Priority</th>
           <td class="task-body">
-            <input type="radio" name="priority" value="Priority:Low">Low
-            <input type="radio" name="priority" value="Priority:Middle">Middle
-            <input type="radio" name="priority" value="Priority:Hight">Hight
+            <input type="radio" name="priority" value="C">Low
+            <input type="radio" name="priority" value="B">Middle
+            <input type="radio" name="priority" value="A">Hight
           </td>
         </tr>
         </table>

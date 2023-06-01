@@ -42,7 +42,7 @@
       <ul class="dropdown">
         <a href="{{ route('tasks.index') }}"><li>Submit</li></a>
         <a href="{{ route('deadline') }}"><li>Deadline</li></a>
-        <li>Priority</li>
+        <a href="{{ route('priorityOder') }}"><li>Priority</li></a>
       </ul>
     </div>
 
@@ -87,7 +87,22 @@
                 Deadline：{{ $daysRemaining }} day left
               @endif
             </div>
-            <div class="priority">{{ $task->priority }}</div>
+            {{-- 優先度表示 --}}
+            <div class="priority">
+              @switch($task->priority)
+                @case('A')
+                  優先度高
+                  @break
+                @case('B')
+                  優先度中
+                  @break
+                @case('C')
+                  優先度低
+                  @break
+                @default
+                  不明
+              @endswitch
+            </div>
               {{-- 共同製作者のみ編集ボタン、削除ボタン表示 --}}
             @if ($task->user_ids)
               @php
