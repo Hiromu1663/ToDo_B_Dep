@@ -15,6 +15,10 @@ class UserController extends Controller
       $user = User::find($id);
 
       $tasks = Task::where('user_id', $id)->latest()->paginate(8);
+
+      foreach ($tasks as $task) {
+        $task['user_ids'] = json_decode($task->user_ids, true);
+    }
       
       return view('profile', ['user'=>$user],['tasks'=>$tasks]);
       
