@@ -3,6 +3,13 @@
     padding: 0;
 }
 
+
+.top-title {
+    color: rgb(8, 8, 165);
+    font-family: 'Roboto', sans-serif;
+    padding: 1.5% 0 0 5%;
+}
+
 .chunks {
     /* background-color: bisque; */
     margin: 50px auto 50px;
@@ -86,12 +93,6 @@
     color: rgb(71, 68, 68);
 }
 
-.add-button {
-    padding: 10px 10px;
-    font-size: 23px;
-    color: rgb(71, 68, 68);
-}
-
 .function li {
     display: block;
     width: 100px;
@@ -118,6 +119,13 @@ label:hover {
   border-left:#000 2px solid;
   transform:rotate(135deg);
 } */
+
+
+.add-button {
+    padding: 10px 10px;
+    font-size: 23px;
+    color: rgb(71, 68, 68);
+}
 
 input[type="checkbox"] {
     display: none;

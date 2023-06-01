@@ -5,11 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="csrf-token" content="{{ csrf_token() }}">
-
   <link rel="stylesheet" href="{{ asset("css/app.css") }}">
   <link rel="stylesheet" href="{{ asset("css/index.css") }}">
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet"> 
-   {{-- <script src="{{ asset("js/script.js") }}"></script> --}}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+  {{-- <script src="{{ asset("js/script.js") }}"></script> --}}
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="{{ asset('js/Ajax.js') }}"></script>
   <script>
@@ -33,7 +35,10 @@
 </head>
 @extends('layouts.app_original')
 @section('content')
- 
+<main class="all">
+<div class="top-title">
+  <h1>ToDo List</h1>
+</div>
   <!-- Todoリスト並び替え -->
   <div class="f-row">
     <div class="function">
@@ -176,7 +181,7 @@
       @endforeach
   </div>
   {{ $tasks->links() }}
-
+</main>
 
 
   @endsection
