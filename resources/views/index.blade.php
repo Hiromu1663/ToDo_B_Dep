@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet">
   {{-- <script src="{{ asset("js/script.js") }}"></script> --}}
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="{{ asset('js/Ajax.js') }}"></script>
@@ -38,7 +39,7 @@
 <main class="all">
   <div class="background">
     <div class="top-title">
-     <h1>ToDo List</h1>
+     <h1>Tasks</h1>
     </div>
      <!-- Todoリスト並び替え -->
      <div class="f-row">
@@ -46,7 +47,7 @@
          <label for="menu">Sort by</label>
          <input type="checkbox" id="menu">
          <ul class="dropdown">
-           <a href="{{ route('tasks.index') }}"><li>Submit</li></a>
+           <a href="{{ route('tasks.index') }}"><li>Created</li></a>
            <a href="{{ route('deadline') }}"><li>Deadline</li></a>
            <a href="{{ route('priorityOder') }}"><li>Priority</li></a>
          </ul>
@@ -76,7 +77,7 @@
             </div>
           <div class="title">{{ $task->title }}</div>
           <div class="content">{{ $task->contents }}</div>
-          <div class="detail-btn">Detail</div>
+          <div class="detail-btn">detailes</div>
           <div class="box">
             <div class="date">Created：{{ $task->created_at->format('Y-m-d') }}</div>
             <div class="limit">
@@ -141,13 +142,13 @@
             @endif
   
             {{-- コメント機能 --}}
-            <div class="t">
+            {{-- <div class="t">
               <a href="{{ route('comments.create',$task->id) }}"><i class="far fa-comment-dots"></i></a>
-            </div>
+            </div> --}}
             {{-- <div class="row justify-content-center"> --}}
             <div>
               <div class="">
-                ▼ Comments ▼
+                ▼ Comments &nbsp; <a href="{{ route('comments.create',$task->id) }}"><i class="far fa-comment-dots"></i></a>
                 @foreach ($task->comments as $comment)
                 <div class="card mt-3">
                   {{-- <h5 class="card-header">投稿者：{{ $comment->user->name }}</h5> --}}
