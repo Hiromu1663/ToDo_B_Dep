@@ -57,10 +57,11 @@
       <div class="task-">
         {{-- 共同製作者 --}}
         <div class="co-producer">
-          @for($i = 0; $i < count($task->user_ids); $i++) 
-          <img src="{{ asset('storage/images/'.$task->user_ids[$i]) }}" alt="">
-          @endfor
+          @foreach($task->user_ids as $user_id)
+            <img src="{{ asset('storage/images/'.$user_id) }}" alt="">
+          @endforeach
         </div>
+
         <div class="task">
           @if($task->image_at !== null)
           <div class="image_at">

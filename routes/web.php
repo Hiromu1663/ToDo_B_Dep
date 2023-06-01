@@ -63,6 +63,7 @@ Route::resource('tasks','TaskController');
 Route::get('tasks/deadline' ,'TaskController@deadline')->name('deadline');
 
 
+
 // Route::get('/index','TaskController@index')->name('tasks.index');
 
 // Route::get('/tasks/create','TaskController@create')->name('tasks.create');
