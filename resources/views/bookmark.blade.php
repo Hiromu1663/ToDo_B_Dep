@@ -174,9 +174,10 @@
   </div>
     @endforeach
 </div>
-@endsection
-{{ $tasks->links() }}
-</html>
 
+{{ $tasks->links() }}
+
+</main>
+@endsection
 
 

@@ -41,7 +41,8 @@ public function indexBookmark($id)
         // }
         // // latest()->paginate(8);
         // return view("bookmark", compact("tasks"));
-        $bookmarks = Bookmark::where('user_id', $id)->latest('created_at')->paginate(8);
+        // $bookmarks = Bookmark::where('user_id', $id)->latest('created_at')->paginate(8);
+        $bookmarks = Bookmark::where('user_id', $id)->latest('created_at');
         $taskIds = $bookmarks->pluck('task_id'); // ブックマークされたタスクのIDを取得
         $tasks = Task::whereIn('id', $taskIds)->paginate(8); // ページネーションをサポートするタスクのリストを取得（1ページあたり8件）
 
@@ -55,7 +56,8 @@ public function indexBookmark($id)
     // 期限順並び替え
     public function deadline($id)
     {
-        $bookmarks = Bookmark::where('user_id', $id)->latest('created_at')->paginate(8);
+        // $bookmarks = Bookmark::where('user_id', $id)->latest('created_at')->paginate(8);
+        $bookmarks = Bookmark::where('user_id', $id)->latest('created_at');
         $taskIds = $bookmarks->pluck('task_id'); // ブックマークされたタスクのIDを取得 
         $tasks = Task::whereIn('id', $taskIds)->orderBy('date', 'asc')->paginate(8);
         foreach ($tasks as $task) {
@@ -68,7 +70,8 @@ public function indexBookmark($id)
     // 優先度順並び替え
     public function priorityOder($id)
     {
-        $bookmarks = Bookmark::where('user_id', $id)->latest('created_at')->paginate(8);
+        // $bookmarks = Bookmark::where('user_id', $id)->latest('created_at')->paginate(8);
+        $bookmarks = Bookmark::where('user_id', $id)->latest('created_at');
         $taskIds = $bookmarks->pluck('task_id'); // ブックマークされたタスクのIDを取得 
         $tasks = Task::whereIn('id', $taskIds)->orderBy('priority', 'asc')->paginate(8);
         foreach ($tasks as $task) {
