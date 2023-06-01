@@ -97,8 +97,14 @@ Route::delete('/comments/{id}','CommentController@destroy')->name('comments.dest
 
 
 
-//アバター表示
+//MyPage
 Route::get('/user/showProfile/{id}','UserController@showProfile')->name('showProfile');
+// 期限順並び替え
+Route::get('/user/MyPageDeadlineOder/{id}','UserController@MyPageDeadlineOder')->name('MyPageDeadlineOder');
+// 重要度順並び替え
+Route::get('/user/MyPagePriorityOder/{id}','UserController@MyPagePriorityOder')->name('MyPagePriorityOder');
+
+
 
 
 //ドロップダウンメニュー「トップページ」からwelcomeページへ遷移

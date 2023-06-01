@@ -91,13 +91,13 @@
             <div class="priority">
               @switch($task->priority)
                 @case('A')
-                  優先度高
+                  High
                   @break
                 @case('B')
-                  優先度中
+                  Middle
                   @break
                 @case('C')
-                  優先度低
+                  Low
                   @break
                 @default
                   不明
@@ -120,8 +120,6 @@
               {{-- 編集機能追加 --}}
               <form action="{{ route('tasks.edit', [$task->id]) }}" method="GET">
                 @csrf
-
-                @method('get')
                 <input type="submit" value="Edit">
 
               </form>
@@ -155,7 +153,7 @@
                     <form action="{{ route('comments.destroy', [$comment->id]) }}" method="POST">
                       @csrf
                       @method('delete')
-                      <input type="submit" value="削除">
+                      <input type="submit" value="Delet">
                     </form>
                     @endif
                   </div>
