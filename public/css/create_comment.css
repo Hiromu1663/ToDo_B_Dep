@@ -39,20 +39,55 @@
   }
   
   .chunk {
+    margin-top: 15px;
     /* background-color: burlywood; */
-    height: 55vh;
+    height: 45vh;
     /* height: 295px; */
     display: flex;
     flex-direction: row;
     justify-content: center;
   }
   
-  .task {
+  .task- {
+    border: 1px solid rgb(205, 202, 202);
+    width: 22%;
+    margin: 0 1.5%;
+    box-shadow: 0 2px 4px rgba(93, 92, 92, 0.3);
+    position: relative;
+}
+
+.task {
     /* background-color: lime; */
-    border: 1px solid black;
-    width: 24%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
+}
+
+.bookmark {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 5px;
+}
+
+.bookmark a {
+    color: rgb(86, 77, 77);
+}
+
+.image_at {
+    /* background-color: aqua; */
+    width: 100%;
+    height: 100px;
+}
+
+.image_at img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.title {
+  font-size: 18px;
+  font-family: 'Noto Sans JP', sans-serif;
+}
