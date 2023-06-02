@@ -40,7 +40,7 @@
 <main class="all">
   <div class="background">
     <div class="top-title">
-      <h1> My Tasks</h1>
+      <h2> My Tasks</h2>
     </div>
      <!-- Todoリスト並び替え -->
 

@@ -42,8 +42,8 @@
           <img src="{{ asset('storage/images/'.$user->avatar) }}" alt=""></a>
         </div>
         <div class="profile-2">
-          <p>{{ Auth::user()->name }}</p>
-          <p >{{  Auth::user()->email  }}</p>
+          <p>NAME：{{ Auth::user()->name }}</p>
+          <p >E-MAIL：{{  Auth::user()->email  }}</p>
         <div class="profile-3">
           <a href="https://www.facebook.com/"><i class="fab fa-facebook-square"></i></a>
           <a href="https://twitter.com/?logout=1685596638674"><i class="fab fa-twitter-square"></i></a>
@@ -55,7 +55,7 @@
 
     <div class="f-row">
       <div class="function">
-        <label for="menu" style="font-size: 12px">Sort by</label>
+        <label for="menu" style="font-size: 15px">Sort by</label>
         <input type="checkbox" id="menu" />
         <ul id="dropdown">
           <li><a href="{{ route('showProfile', Auth::user()->id)}}">Submit</a></li>
