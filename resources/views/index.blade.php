@@ -40,35 +40,24 @@
 <main class="all">
   <div class="background">
     <div class="top-title">
-     <h1>Tasks</h1>
+      <h1>Tasks</h1>
     </div>
      <!-- Todoリスト並び替え -->
-     
-     <div class="f-row">
-       {{-- <div class="function">
-         <label for="menu">Sort by</label>
-         <input type="checkbox" id="menu">
-         <ul class="dropdown">
-           <a href="{{ route('tasks.index') }}"><li>Created</li></a>
-           <a href="{{ route('deadline') }}"><li>Deadline</li></a>
-           <a href="{{ route('priorityOder') }}"><li>Priority</li></a>
-         </ul>
-       </div> --}}
 
-       <div class="function">
-        <label for="menu" style="font-size: 12px">Sort by</label>
+    <div class="f-row">
+      <div class="function">
+        <label for="menu" style="font-size: 15px">Sort by</label>
         <input type="checkbox" id="menu" />
         <ul id="dropdown">
             <li><a href="{{ route('tasks.index') }}">Created</a></li>
             <li><a href="{{ route('deadline') }}">Deadline</a></li>
             <li><a href="{{ route('priorityOder') }}">Priority</a></li>
         </ul>
+      </div>
+      <div>
+        <a class="add-button" href="{{ route('tasks.create') }}"><i class="far fa-plus-square"></i></a>
+      </div>
     </div>
-
-       <div>
-         <a class="add-button" href="{{ route('tasks.create') }}"><i class="far fa-plus-square"></i></a>
-       </div>
-     </div>
     </div>
   <div class="chunks">
     @foreach($tasks->chunk(4) as $chunk)

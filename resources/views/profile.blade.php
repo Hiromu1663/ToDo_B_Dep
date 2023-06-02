@@ -36,7 +36,7 @@
     <div class="background">
       <div class="profile">
         <div class="profile-1">
-          <a href="{{ route('showProfile', Auth::user()->id )}}"><img src="{{ asset('storage/images/'.$user->avatar) }}" alt=""></a>
+          <img src="{{ asset('storage/images/'.$user->avatar) }}" alt=""></a>
         </div>
         <div class="profile-2">
           <p>{{ Auth::user()->name }}</p>
@@ -50,18 +50,18 @@
       </div>
     </div>
 
-      <div class="f-row">
-        <div class="function">
-          <label for="menu">Sort by</label>
-          <input type="checkbox" id="menu">
-          <ul class="dropdown">
-            <a href="{{ route('showProfile', Auth::user()->id)}}"><li>Submit</li></a>
-            <a href="{{ route('MyPageDeadlineOder', Auth::user()->id) }}"><li>Deadline</li></a>
-            <a href="{{ route('MyPagePriorityOder', Auth::user()->id) }}"><li>Priority</li></a>
-          </ul>
-        </div>
+    <div class="f-row">
+      <div class="function">
+       <label for="menu" style="font-size: 15px">Sort by</label>
+       <input type="checkbox" id="menu" />
+       <ul id="dropdown">
+           <li><a href="{{ route('tasks.index') }}">Created</a></li>
+           <li><a href="{{ route('deadline') }}">Deadline</a></li>
+           <li><a href="{{ route('priorityOder') }}">Priority</a></li>
+       </ul>
+   </div>
         <div>
-          <a href="{{ route('tasks.create') }}">＋</a>
+          <a class="add-button" href="{{ route('tasks.create') }}"><i class="far fa-plus-square"></i></a>
         </div>
 
       </div>

@@ -42,15 +42,14 @@
   </div>
 <div class="f-row">
   <div class="function">
-    <label for="menu">Sort by</label>
-    <input type="checkbox" id="menu">
-    <ul class="dropdown">
-      <a href="/indexBookmark/{{ Auth::user()->id }}"><li>Submit</li></a>
-      <a href="/bookmarkdeadline/{{ Auth::user()->id }}"><li>Deadline</li></a>
-      <a href="/bookmarkpriorityOder/{{ Auth::user()->id }}"><li>Priority</li></a>
+    <label for="menu" style="font-size: 15px">Sort by</label>
+    <input type="checkbox" id="menu" />
+    <ul id="dropdown">
+        <li><a href="{{ route('tasks.index') }}">Created</a></li>
+        <li><a href="{{ route('deadline') }}">Deadline</a></li>
+        <li><a href="{{ route('priorityOder') }}">Priority</a></li>
     </ul>
-  </div>
-
+</div>
   <div>
     <a class="add-button" href="{{ route('tasks.create') }}"><i class="far fa-plus-square"></i></a>
   </div>
