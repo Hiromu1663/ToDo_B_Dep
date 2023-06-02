@@ -38,11 +38,11 @@
 @section('content')
 <div class="background">
   <div class="top-title">
-   <h1>Bookmarks</h1>
+   <h2>Bookmarks</h2>
   </div>
 <div class="f-row">
   <div class="function">
-    <label for="menu" style="font-size: 12px">Sort by</label>
+    <label for="menu" style="font-size: 15px">Sort by</label>
     <input type="checkbox" id="menu" />
     <ul id="dropdown">
       <li><a href="/indexBookmark/{{ Auth::user()->id }}">Created</a></li>
