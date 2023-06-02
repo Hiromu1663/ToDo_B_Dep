@@ -203,7 +203,7 @@ input {
 #menu:checked ~ #dropdown li {
     height: 54px;
     opacity: 1;
-    box-shadow: 10px 10px 15px 10px rgba(93, 92, 92, 0.3);
+    box-shadow: 10px 10px 10px rgba(93, 92, 92, 0.3);  
 }
 
 .chunks {
