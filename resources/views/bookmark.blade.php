@@ -1,37 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{{ asset("css/app.css") }}">
   <link rel="stylesheet" href="{{ asset("css/index.css") }}">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet">
-  {{-- <script src="{{ asset("js/app.js") }}"></script> --}}
-  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet"> 
-   {{-- <script src="{{ asset("js/script.js") }}"></script> --}}
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-  <script src="{{ asset('js/Ajax.js') }}"></script>
-  <script>
-    $(document).ready(function() {
-      $('.detail-btn').on('click', function() {//タイトル要素をクリックしたら
-        $('.box').slideUp(500);//クラス名.boxがついたすべてのアコーディオンを閉じる
-          
-        var findElm = $(this).next(".box");//タイトル直後のアコーディオンを行うエリアを取得
-          
-        if($(this).hasClass('close')){//タイトル要素にクラス名closeがあれば
-          $(this).removeClass('close');//クラス名を除去    
-        }else{//それ以外は
-          $('.close').removeClass('close'); //クラス名closeを全て除去した後
-          $(this).addClass('close');//クリックしたタイトルにクラス名closeを付与し
-          $(findElm).slideDown(500);//アコーディオンを開く
-        }
-      });
-    });
-    </script>
   <title>Bookmarks</title>
 </head>
 @extends('layouts.app_original')
