@@ -49,8 +49,7 @@
       <li><a href="/bookmarkdeadline/{{ Auth::user()->id }}">Deadline</a></li>
       <li><a href="/bookmarkpriorityOder/{{ Auth::user()->id }}">Priority</a></li>
     </ul>
-  </div>
-
+</div>
   <div>
     <a class="add-button" href="{{ route('tasks.create') }}"><i class="far fa-plus-square"></i></a>
   </div>

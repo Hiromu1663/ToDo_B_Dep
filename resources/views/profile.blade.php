@@ -39,7 +39,7 @@
     <div class="background">
       <div class="profile">
         <div class="profile-1">
-          <a href="{{ route('showProfile', Auth::user()->id )}}"><img src="{{ asset('storage/images/'.$user->avatar) }}" alt=""></a>
+          <img src="{{ asset('storage/images/'.$user->avatar) }}" alt=""></a>
         </div>
         <div class="profile-2">
           <p>{{ Auth::user()->name }}</p>
@@ -63,6 +63,7 @@
           <li><a href="{{ route('MyPagePriorityOder', Auth::user()->id) }}">Priority</a></li>
         </ul>
       </div>
+
 
       <div>
         <a class="add-button" href="{{ route('tasks.create') }}"><i class="far fa-plus-square"></i></a>
