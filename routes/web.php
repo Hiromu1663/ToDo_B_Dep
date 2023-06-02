@@ -52,7 +52,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // ブックマーク機能
 Route::get('tasks/{task_id}/bookmarks','BookmarkController@store');
 
-Route::get('bookmarks/{bookmark_id}/','BookmarkController@destroy');
+// Route::get('bookmarks/{bookmark_id}/','BookmarkController@destroy');
+Route::get('bookmarks/{task_id}/','BookmarkController@destroy');
 
 Route::get('/indexBookmark/{user_id}','BookmarkController@indexBookmark')->name('indexBookmark');
 
@@ -62,12 +63,12 @@ Route::resource('tasks','TaskController');
 // 期限順並び替え
 Route::get('deadline' ,'TaskController@deadline')->name('deadline');
 
-Route::get('bookmarkdeadline/{user_id}' ,'BookmarkController@deadline')->name('bookmark.deadline');
+Route::get('bookmarkDeadline/{user_id}' ,'BookmarkController@deadline')->name('bookmark.deadline');
 
 // 優先度順並び替え
 Route::get('priorityOder', 'TaskController@priorityOder')->name('priorityOder');
 
-Route::get('bookmarkpriorityOder/{user_id}', 'BookmarkController@priorityOder')->name('bookmark.priorityOder');
+Route::get('bookmarkPriorityOder/{user_id}', 'BookmarkController@priorityOder')->name('bookmark.priorityOder');
 
 
 
