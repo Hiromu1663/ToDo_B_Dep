@@ -42,6 +42,7 @@
 }
 
 .chunk {
+    margin-top: 15px;
     /* background-color: burlywood; */
     height: 45%;
     display: flex;
@@ -124,7 +125,11 @@ label {
     box-shadow: 0 2px 4px rgba(93, 92, 92, 0.3);
 }
 
-input {
+/* input {
+    display: none;
+} */
+
+#menu{
     display: none;
 }
 
@@ -286,6 +291,11 @@ label[for="menu"]::before {
     /* justify-content: ; */
 }
 
+/* .btn-container input{
+    
+    display: block;
+} */
+
 /* 共同開発者 */
 .co-producer {
     width: 15px;
@@ -299,5 +309,9 @@ label[for="menu"]::before {
     height: 100%;
     border-radius: 50%;
 }
+
+/* .comment input{
+    display: block;
+} */
 
 

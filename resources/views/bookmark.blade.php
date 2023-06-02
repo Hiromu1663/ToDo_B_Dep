@@ -42,12 +42,12 @@
   </div>
 <div class="f-row">
   <div class="function">
-    <label for="menu" style="font-size: 15px">Sort by</label>
+    <label for="menu" style="font-size: 12px">Sort by</label>
     <input type="checkbox" id="menu" />
     <ul id="dropdown">
-        <li><a href="{{ route('tasks.index') }}">Created</a></li>
-        <li><a href="{{ route('deadline') }}">Deadline</a></li>
-        <li><a href="{{ route('priorityOder') }}">Priority</a></li>
+      <li><a href="/indexBookmark/{{ Auth::user()->id }}">Created</a></li>
+      <li><a href="/bookmarkdeadline/{{ Auth::user()->id }}">Deadline</a></li>
+      <li><a href="/bookmarkpriorityOder/{{ Auth::user()->id }}">Priority</a></li>
     </ul>
 </div>
   <div>
@@ -60,22 +60,21 @@
   <div class="chunk">
     @foreach($chunk as $task)
     <div class="task-">
-      {{-- 共同製作者 --}}
-      <div class="co-producer">
-        @foreach($task->user_ids as $user_id)
-          <img src="{{ asset('storage/images/'.$user_id) }}" alt="">
-        @endforeach
-      </div>
-
       <div class="task">
         @if($task->image_at !== null)
         <div class="image_at">
           <img src="{{ asset('storage/images/'.$task->image_at) }}" alt="">
         </div>
         @endif
+          {{-- 共同製作者 --}}
+          <div class="co-producer">
+            @foreach($task->user_ids as $user_id)
+              <img src="{{ asset('storage/images/'.$user_id) }}" alt="">
+            @endforeach
+          </div>
         <div class="title">{{ $task->title }}</div>
         <div class="content">{{ $task->contents }}</div>
-        <div class="detail-btn">Detail</div>
+        <div class="detail-btn">detailes</div>
         <div class="box">
           <div class="date">Created：{{ $task->created_at->format('Y-m-d') }}</div>
           <div class="limit">
@@ -95,13 +94,13 @@
           <div class="priority">
             @switch($task->priority)
               @case('A')
-                優先度高
+                High
                 @break
               @case('B')
-                優先度中
+                Middle
                 @break
               @case('C')
-                優先度低
+                Low
                 @break
               @default
                 不明
@@ -124,8 +123,6 @@
             {{-- 編集機能追加 --}}
             <form action="{{ route('tasks.edit', [$task->id]) }}" method="GET">
               @csrf
-
-              @method('get')
               <input type="submit" value="Edit">
 
             </form>
@@ -142,24 +139,25 @@
           @endif
 
           {{-- コメント機能 --}}
-          <div class="t">
+          {{-- <div class="t">
             <a href="{{ route('comments.create',$task->id) }}"><i class="far fa-comment-dots"></i></a>
-          </div>
+          </div> --}}
           {{-- <div class="row justify-content-center"> --}}
           <div>
+
             <div class="">
-              ▼ Comments ▼
+              ▼ Comments &nbsp; <a href="{{ route('comments.create',$task->id) }}"><i class="far fa-comment-dots"></i></a>
               @foreach ($task->comments as $comment)
               <div class="card mt-3">
-                {{-- <h5 class="card-header">投稿者：{{ $comment->user->name }}</h5> --}}
+                <p class="card-header">投稿者：{{ $comment->user->name }}</p>
                 <div class="card-body">
-                  {{-- <h5 class="card-title">投稿日時：{{ $comment->created_at }}</h5> --}}
+                  <p class="card-title">投稿日時：{{ $comment->created_at->format('Y-m-d') }}</p>
                   <p class="card-text">Content：{{ $comment->body }}</p>
                   @if($comment->user_id == Auth::user()->id)
                   <form action="{{ route('comments.destroy', [$comment->id]) }}" method="POST">
                     @csrf
                     @method('delete')
-                    <input type="submit" value="削除">
+                    <input type="submit" value="Delet">
                   </form>
                   @endif
                 </div>
@@ -170,7 +168,7 @@
         </div>
         <div class="bookmark">
           @if($task->bookmarkedBy(Auth::user())->exists())
-          <a href="/bookmarks/{{ $task->bookmarkedBy(Auth::user())->firstOrfail()->id }}"><i class="fas fa-bookmark"></i></a>
+          <a href="/bookmarks/{{ $task->id }}"><i class="fas fa-bookmark"></i></a>
           @else
           <a href="/tasks/{{ $task->id }}/bookmarks"><i class="far fa-bookmark"></i></a> 
           @endif
