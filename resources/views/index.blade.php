@@ -44,7 +44,7 @@
     </div>
      <!-- Todoリスト並び替え -->
      
-     <div class="f-row">
+    <div class="f-row">
        {{-- <div class="function">
          <label for="menu">Sort by</label>
          <input type="checkbox" id="menu">
@@ -55,7 +55,7 @@
          </ul>
        </div> --}}
 
-       <div class="function">
+      <div class="function">
         <label for="menu" style="font-size: 12px">Sort by</label>
         <input type="checkbox" id="menu" />
         <ul id="dropdown">
@@ -63,13 +63,14 @@
             <li><a href="{{ route('deadline') }}">Deadline</a></li>
             <li><a href="{{ route('priorityOder') }}">Priority</a></li>
         </ul>
-    </div>
+      </div>
 
-       <div>
-         <a class="add-button" href="{{ route('tasks.create') }}"><i class="far fa-plus-square"></i></a>
-       </div>
-     </div>
+      <div>
+        <a class="add-button" href="{{ route('tasks.create') }}"><i class="far fa-plus-square"></i></a>
+      </div>
     </div>
+  </div>
+  
   <div class="chunks">
     @foreach($tasks->chunk(4) as $chunk)
     <div class="chunk">
@@ -159,13 +160,13 @@
             </div> --}}
             {{-- <div class="row justify-content-center"> --}}
             <div>
-              <div class="">
+              <div class="comment">
                 ▼ Comments &nbsp; <a href="{{ route('comments.create',$task->id) }}"><i class="far fa-comment-dots"></i></a>
                 @foreach ($task->comments as $comment)
                 <div class="card mt-3">
-                  {{-- <h5 class="card-header">投稿者：{{ $comment->user->name }}</h5> --}}
+                  <p class="card-header">投稿者：{{ $comment->user->name }}</p>
                   <div class="card-body">
-                    {{-- <h5 class="card-title">投稿日時：{{ $comment->created_at }}</h5> --}}
+                    <p class="card-title">投稿日時：{{ $comment->created_at->format('Y-m-d') }}</p>
                     <p class="card-text">Content：{{ $comment->body }}</p>
                     @if($comment->user_id == Auth::user()->id)
                     <form action="{{ route('comments.destroy', [$comment->id]) }}" method="POST">
