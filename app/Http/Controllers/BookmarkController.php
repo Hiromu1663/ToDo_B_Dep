@@ -13,23 +13,43 @@ class BookmarkController extends Controller
     // ブックマークする
     public function store($task_id)
     {
-    $bookmark = new Bookmark();
-    $bookmark->task_id = $task_id;
-    $bookmark->user_id = Auth::user()->id;
-    $bookmark->save();
+        $user_id = Auth::user()->id;
+
+    // すでにブックマークが存在するかチェック
+    $existingBookmark = Bookmark::where('task_id', $task_id)->where('user_id', $user_id)->first();
+
+    if ($existingBookmark) {
+        // ブックマークが存在する場合は削除
+        $existingBookmark->delete();
+    } else {
+        // ブックマークが存在しない場合は新規作成
+        $bookmark = new Bookmark();
+        $bookmark->task_id = $task_id;
+        $bookmark->user_id = $user_id;
+        $bookmark->save();
+    }
 
     return redirect()->back();
     }
 
 
     // ブックマーク削除
-    public function destroy($bookmark_id)
+    public function destroy($task_id)
     {
-        $bookmark = Bookmark::find($bookmark_id);
+        $bookmark = Bookmark::where('task_id', $task_id)->where('user_id', Auth::user()->id)->first();
+        if ($bookmark) {
         $bookmark->delete();
-
+    } else {
+        // ブックマークが存在しない場合は新規作成
+        $newBookmark = new Bookmark();
+        $newBookmark->task_id = $task_id;
+        $newBookmark->user_id = Auth::user()->id;
+        $newBookmark->save();
+    }
         return redirect()->back();
     }
+
+
 
 public function indexBookmark($id)
     {
