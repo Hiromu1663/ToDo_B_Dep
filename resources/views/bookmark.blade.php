@@ -42,12 +42,12 @@
   </div>
 <div class="f-row">
   <div class="function">
-    <label for="menu">Sort by</label>
-    <input type="checkbox" id="menu">
-    <ul class="dropdown">
-      <a href="/indexBookmark/{{ Auth::user()->id }}"><li>Submit</li></a>
-      <a href="/bookmarkDeadline/{{ Auth::user()->id }}"><li>Deadline</li></a>
-      <a href="/bookmarkPriorityOder/{{ Auth::user()->id }}"><li>Priority</li></a>
+    <label for="menu" style="font-size: 12px">Sort by</label>
+    <input type="checkbox" id="menu" />
+    <ul id="dropdown">
+      <li><a href="/indexBookmark/{{ Auth::user()->id }}">Created</a></li>
+      <li><a href="/bookmarkdeadline/{{ Auth::user()->id }}">Deadline</a></li>
+      <li><a href="/bookmarkpriorityOder/{{ Auth::user()->id }}">Priority</a></li>
     </ul>
   </div>
 
@@ -145,13 +145,14 @@
           </div> --}}
           {{-- <div class="row justify-content-center"> --}}
           <div>
+
             <div class="">
               ▼ Comments &nbsp; <a href="{{ route('comments.create',$task->id) }}"><i class="far fa-comment-dots"></i></a>
               @foreach ($task->comments as $comment)
               <div class="card mt-3">
-                {{-- <h5 class="card-header">投稿者：{{ $comment->user->name }}</h5> --}}
+                <p class="card-header">投稿者：{{ $comment->user->name }}</p>
                 <div class="card-body">
-                  {{-- <h5 class="card-title">投稿日時：{{ $comment->created_at }}</h5> --}}
+                  <p class="card-title">投稿日時：{{ $comment->created_at->format('Y-m-d') }}</p>
                   <p class="card-text">Content：{{ $comment->body }}</p>
                   @if($comment->user_id == Auth::user()->id)
                   <form action="{{ route('comments.destroy', [$comment->id]) }}" method="POST">

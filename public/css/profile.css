@@ -140,11 +140,11 @@
 }
 
 .title {
-font-size: 18px;
-font-family: 'Noto Sans JP', sans-serif;
+  font-size: 18px;
+  font-family: 'Noto Sans JP', sans-serif;
 }
 
-/* アコーディオン */
+/* ドロップダウンメニュー再作成 */
 .f-row {
   /* background-color: aqua; */
   margin-left: 6vw;
@@ -153,6 +153,76 @@ font-family: 'Noto Sans JP', sans-serif;
   height: 100px;
   display: flex;
   flex-direction: row;
+  border-radius: 0.3rem;
+  justify-content: space-between;
+  z-index: 999;
+}
+
+.function a {
+  display: block;
+  padding: 15px;
+  text-decoration: none;
+  color :#fff;
+}
+
+label {
+  display: block;
+  width: 100%;
+  padding : 15px;
+  line-height: 1;
+  color :#fff;
+  background :  rgb(71, 68, 68);
+  cursor :pointer;
+  box-shadow: 0 2px 4px rgba(93, 92, 92, 0.3);
+}
+
+/* input {
+  display: none;
+} */
+
+#menu{
+  display: none;
+}
+
+.function ul {
+  width: 150px;
+  margin: 0;
+  padding: 0;
+  background :  rgb(71, 68, 68);
+  list-style: none;
+}
+
+.function li {
+  height: 0;
+  overflow: hidden;
+  transition: all 0.5s;
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.function #dropdown li a:hover {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.372); 
+}
+
+#menu:checked ~ #dropdown li {
+  height: 54px;
+  opacity: 1;
+  box-shadow: 10px 10px 15px 10px rgba(93, 92, 92, 0.3);  
+}
+
+/* アコーディオン */
+/* .f-row {
+  margin-left: 6vw;
+  margin-top: 30px;
+  width: 200px;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+} */
+
+/* .dropdown {
   justify-content: space-between;
 }
 
@@ -163,10 +233,10 @@ font-family: 'Noto Sans JP', sans-serif;
 .function label {
   display:block;
   width: 150px;
-  padding: 5px 20px;
+  padding: 5px 20px; */
   /* background:gold; */
   /* border: 1px solid black; */
-  font-size: 20px;
+  /* font-size: 20px;
   color: rgb(71, 68, 68);
 }
 
@@ -175,13 +245,14 @@ font-family: 'Noto Sans JP', sans-serif;
   width: 100px;
   padding: 5px 20px;
   /* background-color: gold; */
-  border-bottom: 1px solid black;
+  /* border-bottom: 1px solid black;
 }
 
 li:hover,
 label:hover {
   background: whitesmoke;
-}
+} */
+
 
 /* .function li::before,
 .function label::before {
@@ -200,23 +271,24 @@ transform:rotate(135deg);
 
 .add-button {
   padding: 10px 10px;
-  font-size: 23px;
+  font-size: 30px;
   color: rgb(71, 68, 68);
 }
 
-input[type="checkbox"] {
+/* input[type="checkbox"] {
   display: none;
-}
-label[for="menu"] {
+} */
+/* label[for="menu"] {
   display: block;
-  /* background:orange; */
+  background:orange;
 }
 label[for="menu"]::before {
   transform: rotate(225deg);
 }
 #menu:checked + .dropdown {
   display: block;
-}
+} */
+
 
 .detail-btn {
   position: relative; /*+マークの位置基準とするためrelative指定*/
