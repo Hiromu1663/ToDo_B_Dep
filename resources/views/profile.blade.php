@@ -71,22 +71,21 @@
         <div class="chunk">
           @foreach($chunk as $task)
           <div class="task-">
-            {{-- 共同製作者 --}}
-            <div class="co-producer">
-              @foreach($task->user_ids as $user_id)
-                <img src="{{ asset('storage/images/'.$user_id) }}" alt="">
-              @endforeach
-            </div>
-    
             <div class="task">
               @if($task->image_at !== null)
               <div class="image_at">
                 <img src="{{ asset('storage/images/'.$task->image_at) }}" alt="">
               </div>
               @endif
+                {{-- 共同製作者 --}}
+                <div class="co-producer">
+                  @foreach($task->user_ids as $user_id)
+                    <img src="{{ asset('storage/images/'.$user_id) }}" alt="">
+                  @endforeach
+                </div>
               <div class="title">{{ $task->title }}</div>
               <div class="content">{{ $task->contents }}</div>
-              <div class="detail-btn">Detail</div>
+              <div class="detail-btn">detailes</div>
               <div class="box">
                 <div class="date">Created：{{ $task->created_at->format('Y-m-d') }}</div>
                 <div class="limit">
@@ -151,13 +150,13 @@
                 @endif
       
                 {{-- コメント機能 --}}
-                <div class="t">
+                {{-- <div class="t">
                   <a href="{{ route('comments.create',$task->id) }}"><i class="far fa-comment-dots"></i></a>
-                </div>
+                </div> --}}
                 {{-- <div class="row justify-content-center"> --}}
                 <div>
                   <div class="">
-                    ▼ Comments ▼
+                    ▼ Comments &nbsp; <a href="{{ route('comments.create',$task->id) }}"><i class="far fa-comment-dots"></i></a>
                     @foreach ($task->comments as $comment)
                     <div class="card mt-3">
                       {{-- <h5 class="card-header">投稿者：{{ $comment->user->name }}</h5> --}}
@@ -179,7 +178,7 @@
               </div>
               <div class="bookmark">
                 @if($task->bookmarkedBy(Auth::user())->exists())
-                <a href="/bookmarks/{{ $task->bookmarkedBy(Auth::user())->firstOrfail()->id }}"><i class="fas fa-bookmark"></i></a>
+                <a href="/bookmarks/{{ $task->id }}"><i class="fas fa-bookmark"></i></a>
                 @else
                 <a href="/tasks/{{ $task->id }}/bookmarks"><i class="far fa-bookmark"></i></a> 
                 @endif
