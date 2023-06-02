@@ -83,6 +83,9 @@
                       @endguest --}}
                       <div class="header-right">
                         <div class="dropdown nav">
+                          <div class="profile-icon">
+                            <a href="{{ route('showProfile', Auth::user()->id )}}"><img src="{{ asset('storage/images/'.Auth::user()->avatar) }}" alt=""></a>
+                          </div>
                           <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" style="text-decoration: none; color: black;">
                           {{ Auth::user()->name }}
                           </a>

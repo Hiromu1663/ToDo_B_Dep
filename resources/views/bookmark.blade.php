@@ -145,7 +145,8 @@
           </div> --}}
           {{-- <div class="row justify-content-center"> --}}
           <div>
-            <div class="comment">
+
+            <div class="">
               ▼ Comments &nbsp; <a href="{{ route('comments.create',$task->id) }}"><i class="far fa-comment-dots"></i></a>
               @foreach ($task->comments as $comment)
               <div class="card mt-3">
@@ -168,7 +169,7 @@
         </div>
         <div class="bookmark">
           @if($task->bookmarkedBy(Auth::user())->exists())
-          <a href="/bookmarks/{{ $task->bookmarkedBy(Auth::user())->firstOrfail()->id }}"><i class="fas fa-bookmark"></i></a>
+          <a href="/bookmarks/{{ $task->id }}"><i class="fas fa-bookmark"></i></a>
           @else
           <a href="/tasks/{{ $task->id }}/bookmarks"><i class="far fa-bookmark"></i></a> 
           @endif

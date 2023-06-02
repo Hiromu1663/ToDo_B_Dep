@@ -97,7 +97,6 @@
                   $dueDate = \Carbon\Carbon::parse($task->date);
                   $daysRemaining = $dueDate->diffInDays($now);
                 @endphp
-    
                 @if ($daysRemaining <= 3)
                   <span class="limit-text">Deadline：{{ $daysRemaining }}day left</span>
                 @else

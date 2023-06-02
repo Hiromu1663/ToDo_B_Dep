@@ -82,13 +82,6 @@
   color: rgb(8, 8, 114);
 }
 
-.top-title {
-  color: rgb(0, 0, 0);
-  font-family: 'Roboto', sans-serif;
-  padding: 1.5% 0 0 5%;
-  /* text-shadow: 1px 1px 0 rgba(0,0,0,.2); */
-}
-
 .chunks {
   /* background-color: bisque; */
   margin: 50px auto 50px;
@@ -97,11 +90,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  z-index: 0;
 }
 
 .chunk {
-  margin-top: 15px;
   /* background-color: burlywood; */
   height: 45%;
   display: flex;
@@ -232,6 +223,10 @@ label {
 } */
 
 /* .dropdown {
+  justify-content: space-between;
+}
+
+.dropdown {
   display: none;
 }
 
@@ -257,6 +252,7 @@ li:hover,
 label:hover {
   background: whitesmoke;
 } */
+
 
 /* .function li::before,
 .function label::before {
@@ -292,6 +288,7 @@ label[for="menu"]::before {
 #menu:checked + .dropdown {
   display: block;
 } */
+
 
 .detail-btn {
   position: relative; /*+マークの位置基準とするためrelative指定*/
@@ -351,11 +348,6 @@ label[for="menu"]::before {
   /* justify-content: ; */
 }
 
-/* .btn-container input{
-  
-  display: block;
-} */
-
 /* 共同開発者 */
 .co-producer {
   width: 15px;
@@ -369,9 +361,5 @@ label[for="menu"]::before {
   height: 100%;
   border-radius: 50%;
 }
-
-/* .comment input{
-  display: block;
-} */
 
 

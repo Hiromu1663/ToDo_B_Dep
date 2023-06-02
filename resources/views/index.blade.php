@@ -183,7 +183,7 @@
           </div>
           <div class="bookmark">
             @if($task->bookmarkedBy(Auth::user())->exists())
-            <a href="/bookmarks/{{ $task->bookmarkedBy(Auth::user())->firstOrfail()->id }}"><i class="fas fa-bookmark"></i></a>
+            <a href="/bookmarks/{{ $task->id }}"><i class="fas fa-bookmark"></i></a>
             @else
             <a href="/tasks/{{ $task->id }}/bookmarks"><i class="far fa-bookmark"></i></a> 
             @endif
