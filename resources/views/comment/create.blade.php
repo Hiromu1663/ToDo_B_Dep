@@ -1,10 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="{{ asset("css/app.css") }}">
   <link rel="stylesheet" href="{{ asset("css/create_comment.css") }}">
   <title>Comment Create</title>
 </head>
@@ -14,10 +10,15 @@
       
   <div class="chunks">
     <div class="chunk">
-      <div class="task">
-        <div class="title">{{ $task->title }}</div>
-        <div class="content">{{ $task->contents }}</div>
-        {{-- <div class="created_at">{{ $task->created_at }}</div> --}}
+      <div class="task-">
+        <div class="task">
+          <div class="image_at">
+            <img src="{{ asset('storage/images/'.$task->image_at) }}" alt="">
+          </div>
+          <div class="title">{{ $task->title }}</div>
+          <div class="content">{{ $task->contents }}</div>
+          {{-- <div class="created_at">{{ $task->created_at }}</div> --}}
+        </div>
       </div>
     </div>
   </div>
