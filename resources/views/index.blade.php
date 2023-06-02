@@ -11,7 +11,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap" rel="stylesheet">
   {{-- <script src="{{ asset("js/script.js") }}"></script> --}}
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="{{ asset('js/Ajax.js') }}"></script>
@@ -42,8 +43,9 @@
      <h1>Tasks</h1>
     </div>
      <!-- Todoリスト並び替え -->
+     
      <div class="f-row">
-       <div class="function">
+       {{-- <div class="function">
          <label for="menu">Sort by</label>
          <input type="checkbox" id="menu">
          <ul class="dropdown">
@@ -51,7 +53,17 @@
            <a href="{{ route('deadline') }}"><li>Deadline</li></a>
            <a href="{{ route('priorityOder') }}"><li>Priority</li></a>
          </ul>
-       </div>
+       </div> --}}
+
+       <div class="function">
+        <label for="menu" style="font-size: 12px">Sort by</label>
+        <input type="checkbox" id="menu" />
+        <ul id="dropdown">
+            <li><a href="{{ route('tasks.index') }}">Created</a></li>
+            <li><a href="{{ route('deadline') }}">Deadline</a></li>
+            <li><a href="{{ route('priorityOder') }}">Priority</a></li>
+        </ul>
+    </div>
 
        <div>
          <a class="add-button" href="{{ route('tasks.create') }}"><i class="far fa-plus-square"></i></a>
