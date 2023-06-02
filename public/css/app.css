@@ -10772,6 +10772,25 @@ textarea.form-control-lg {
   }
 }
 
+/* headerにアイコン追加 */
+.profile-icon {
+  /* background-color: aqua; */
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+  border: 1px solid white;
+  border-radius: 50%;
+  overflow: hidden;
+  /* box-shadow: 0 2px 4px rgba(93, 92, 92, 0.3); */
+}
+
+.profile-icon img{
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
 /* footer */
 .shadow-sm2 {
   text-align: center;
