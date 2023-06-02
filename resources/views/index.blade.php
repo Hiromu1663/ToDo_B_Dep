@@ -33,14 +33,14 @@
       });
     });
   </script>
-  <title>TASKS</title>
+  <title>Tasks</title>
 </head>
 @extends('layouts.app_original')
 @section('content')
 <main class="all">
   <div class="background">
     <div class="top-title">
-      <h1>Tasks</h1>
+      <h1> My Tasks</h1>
     </div>
      <!-- Todoリスト並び替え -->
 
