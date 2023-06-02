@@ -73,7 +73,7 @@
                 </td>
             </tr>
             </table>
-            <button type="submit" class="submit-btn-btn">{{ __('Edit') }}</button>
+            <button type="submit" class="submit-btn">{{ __('Edit') }}</button>
         </form>
     </div>
 </main>
