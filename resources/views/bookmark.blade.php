@@ -16,8 +16,8 @@
     <input type="checkbox" id="menu" />
     <ul id="dropdown">
       <li><a href="/indexBookmark/{{ Auth::user()->id }}">Created</a></li>
-      <li><a href="/bookmarkdeadline/{{ Auth::user()->id }}">Deadline</a></li>
-      <li><a href="/bookmarkpriorityOder/{{ Auth::user()->id }}">Priority</a></li>
+      <li><a href="/bookmarkDeadline/{{ Auth::user()->id }}">Deadline</a></li>
+      <li><a href="/bookmarkPriorityOder/{{ Auth::user()->id }}">Priority</a></li>
     </ul>
 </div>
   <div>
