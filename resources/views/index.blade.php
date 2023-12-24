@@ -36,11 +36,19 @@
       @foreach($chunk as $task)
       <div class="task-">
         <div class="task">
-          @if($task->image_at !== null)
+          {{-- @if($task->image_at !== null)
           <div class="image_at">
-            <img src="{{ asset('storage/images/'.$task->image_at) }}" alt="">
+            <img src="{{ $task->image_at }}" alt="">
+          </div>
+          @endif --}}
+
+          @if(isset($task->signed_url))
+          <div class="image_at">
+            <img src="{{ $task->signed_url }}" alt="">
           </div>
           @endif
+
+
             {{-- 共同製作者 --}}
             <div class="co-producer">
               @foreach($task->user_ids as $user_id)
