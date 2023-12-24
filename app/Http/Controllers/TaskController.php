@@ -9,28 +9,42 @@ use App\Models\Bookmark;
 use App\Models\Comment;
 use App\Models\User;
 
+// デプロイ----------------------------------------------------
+use Illuminate\Support\Facades\Storage;
+// デプロイ----------------------------------------------------
+
+
 class TaskController extends Controller
 {
-    //
     public function index()
-    {
-        // $tasks = Task::latest()->paginate(8);
-        // foreach ($tasks as $task) {
-        //     $userIds[] = json_decode($task->user_ids, true);
-        // }
-        // $tasks = $tasks->map(function ($task, $index) use ($userIds) {
-        //     $task['user_ids'] = $userIds[$index];
-        //     return $task;
-        // });
+{
+    $tasks = Task::latest()->paginate(8);
 
-        $tasks = Task::latest()->paginate(8);
+    foreach ($tasks as $task) {
+        // ユーザーID情報の処理
+        $task['user_ids'] = json_decode($task->user_ids, true);
 
-        foreach ($tasks as $task) {
-            $task['user_ids'] = json_decode($task->user_ids, true);
+        // デプロイ----------------------------------------------------
+       // S3の非公開オブジェクトに対する署名付きURLを生成（ファイルが存在する場合）
+       if ($task->image_at) {
+        // ファイルへの相対パスを抽出
+        $relativePath = parse_url($task->image_at, PHP_URL_PATH);
+
+        // 先頭のスラッシュを削除
+        $relativePath = ltrim($relativePath, '/');
+
+        // 相対パスで署名付きURLを生成
+        $task->signed_url = Storage::disk('s3')->temporaryUrl(
+            $relativePath, now()->addMinutes(5)
+        );
+        // デプロイ----------------------------------------------------
         }
-       
-        return view("index", compact("tasks"));
+
+    
     }
+   
+    return view("index", compact("tasks"));
+}
 
 
     // 写真ファイル登録機能追加
@@ -52,6 +66,16 @@ class TaskController extends Controller
         $task->title = $request->title;
         $task->contents = $request->contents;
         $task->image_at = $image_at;
+
+        // デプロイ----------------------------------------------------
+        // s3アップロード開始(image_atを$imageに格納)
+        $image = $request->file('image_at');
+        // hy-bucket1フォルダへアップロード
+        $path = Storage::disk('s3')->putFile('/', $image);
+        // アップロードした画像のフルパスを取得
+        $task->image_at = Storage::disk('s3')->url($path);
+        // デプロイ----------------------------------------------------
+
         $task->date = $request->date;
         $task->user_ids = json_encode($request->user_ids); 
         $task->priority = $request->priority;
